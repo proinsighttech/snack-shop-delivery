@@ -14,7 +14,7 @@ Em resumo, a Snack Shop API é uma solução completa para lanchonetes que busca
 ## 📄 Diagramas de negócio
 - [Processos](https://miro.com/app/board/uXjVNzyqNFE=/)
 - Diagrama de Objetos
-  ![Diagrama](src/main/resources/images/documentation/snack-shop-delivery.drawio.png.png)
+  ![Diagrama](src/main/resources/images/documentation/snack-shop-delivery.drawio.png)
 
 ## 💻 Tecnologias
 

@@ -11,6 +11,11 @@ A API é construída com tecnologias robustas e modernas, garantindo a seguranç
 
 Em resumo, a Snack Shop API é uma solução completa para lanchonetes que buscam melhorar sua eficiência operacional e proporcionar uma experiência superior aos seus clientes.
 
+## 📄 Diagramas de negócio
+- [Processos](https://miro.com/app/board/uXjVNzyqNFE=/)
+- Diagrama de Objetos
+  ![Diagrama](src/main/resources/images/documentation/snack-shop-delivery.drawio.png.png)
+
 ## 💻 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
@@ -19,7 +24,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Maven](https://maven.apache.org/)
 - [SQL](https://www.mysql.com/)
-- 
 ## ✅ Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:

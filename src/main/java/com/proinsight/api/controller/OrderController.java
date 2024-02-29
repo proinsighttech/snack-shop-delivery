@@ -9,6 +9,7 @@ import com.proinsight.domain.repository.filter.OrderFilter;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.HttpStatus;
@@ -25,8 +26,9 @@ public class OrderController {
     @CheckSecurity.Orders.PodeBuscar
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public PagedModel<OrderResumeModel> findAll(OrderFilter filter,
-                                                @PageableDefault(size = 10) Pageable pageable) {
-        return orderFacade.findAll(filter, pageable);
+                                                @PageableDefault(size = 10) Pageable pageable,
+                                                @Param("orderedResults") boolean filteredResults){
+        return orderFacade.findAll(filter, pageable, filteredResults);
     }
 
     @CheckSecurity.Orders.PodeCriar

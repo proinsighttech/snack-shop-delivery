@@ -33,10 +33,8 @@ public @interface CheckSecurity {
 
     public @interface Orders {
 
-        @PreAuthorize("isAuthenticated()")
-        @PostAuthorize("hasAuthority('CONSULTAR_PEDIDOS') or "
-                + "@snackShopSecurity.authenticatedUserEquals(returnObject) or "
-                + "@snackShopSecurity.gerenciaLanchonete(returnObject)")
+        @PreAuthorize("@snackShopSecurity.isAuthenticated()")
+        @PostAuthorize("@snackShopSecurity.hasAuthority('CONSULTAR_PEDIDOS') || @snackShopSecurity.authenticatedUserEquals(returnObject) || @snackShopSecurity.gerenciaLanchonete(returnObject)")
         @Retention(RUNTIME)
         @Target(METHOD)
         public @interface PodeBuscar { }
@@ -46,7 +44,7 @@ public @interface CheckSecurity {
         @Target(METHOD)
         public @interface PodePesquisar { }
 
-        @PreAuthorize("isAuthenticated()")
+        @PreAuthorize("@snackShopSecurity.isAuthenticated()")
         @Retention(RUNTIME)
         @Target(METHOD)
         public @interface PodeCriar { }
@@ -60,7 +58,7 @@ public @interface CheckSecurity {
 
     public @interface PaymentMethods {
 
-        @PreAuthorize("hasAuthority('EDITAR_FORMAS_PAGAMENTO')")
+        @PreAuthorize("@snackShopSecurity.hasAuthority('EDITAR_FORMAS_PAGAMENTO')")
         @Retention(RUNTIME)
         @Target(METHOD)
         public @interface PodeEditar { }
@@ -74,14 +72,14 @@ public @interface CheckSecurity {
 
     public @interface UserGroupsPermissions {
 
-        @PreAuthorize("hasAuthority('SCOPE_WRITE') and "
+        @PreAuthorize("@snackShopSecurity.hasAuthority('SCOPE_WRITE') and "
                 + "@algaSecurity.authenticatedUserEquals(#usuarioId)")
         @Retention(RUNTIME)
         @Target(METHOD)
         public @interface PodeAlterarPropriaSenha { }
 
-        @PreAuthorize("hasAuthority('SCOPE_WRITE') and (hasAuthority('EDITAR_USUARIOS_GRUPOS_PERMISSOES') or "
-                + "@algaSecurity.authenticatedUserEquals(#usuarioId))")
+        @PreAuthorize("@snackShopSecurity.hasAuthority('SCOPE_WRITE') and (@snackShopSecurity.hasAuthority('EDITAR_USUARIOS_GRUPOS_PERMISSOES') or "
+                + "@snackShopSecurity.authenticatedUserEquals(#usuarioId))")
         @Retention(RUNTIME)
         @Target(METHOD)
         public @interface PodeAlterarUsuario { }

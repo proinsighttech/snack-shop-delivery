@@ -15,6 +15,6 @@ public interface SnackShopRepository extends CustomJpaRepository<SnackShop, Long
     @Query("from SnackShop where name like %:name%")
     List<SnackShop> findByName (String name);
 
-    @Query("from SnackShop s join s.admins a where s.id = :snackShopId and a.id = :userId")
+    @Query("SELECT CASE WHEN COUNT(a) > 0 THEN true ELSE false END FROM SnackShop s JOIN s.admins a WHERE s.id = :snackShopId and a.id = :userId")
     boolean existsAdmin(Long snackShopId, Long userId);
 }

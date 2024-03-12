@@ -1,0 +1,79 @@
+Workshop Implementando microsserviços com Kubernetes na prática:
+    https://www.youtube.com/watch?v=qbFXMtcRbHA
+
+Repositório:
+    https://github.com/vcampitelli/workshop-kubernetes
+
+	1. Clonando o repositório:
+        git clone https://github.com/vcampitelli/workshop-kubernetes.git
+
+	2. Intalando Minikube:
+		https://minikube.sigs.k8s.io/docs/start/
+
+		choco install minikube
+
+	3. Acessando Repositorio
+		cd C:\Users\User\workspace\snack-shop-delivery-internal
+
+	4. Executando Minikube:
+		minikube start
+
+	5. Deploy do Cluster:
+	    Entrado no Ambiente Minikube:
+		    UNIX:
+			    eval $(minikube -p minikube docker-env)
+
+		    WINDOWS:
+		        minikube -p minikube docker-env | Invoke-Expression
+
+	    Verificando Ambiente:
+		    docker images
+
+	    Build da aplicação:
+		    docker-compose build
+
+	    Verificando kubectl:
+		    minikube kubectl -- version
+
+	    Aplicando arquivos da Aplicação:
+		    minikube kubectl -- apply -f ./k8s/00-snack-shop-mysql.yml
+		    minikube kubectl -- apply -f ./k8s/01-snack-shop-api.yml
+
+	    Verificar pods:
+		    minikube kubectl -- get pods
+
+	    Verificar Serviços com Load Balance:
+		    minikube tunnel
+
+	    Verificar serviços rodando
+		    minikube kubectl -- get services
+
+	6. Testar no Postman
+
+	7. Instalar Istio  (Service Mesh ou Sidecar Proxy)
+		https://istio.io/latest/docs/setup/getting-started/
+
+		choco install istioctl
+
+	8. Configurar Istio
+		istioctl install
+
+		Habilitando istio:
+			kubectl label namespace default istio-injection=enabled
+
+	9. Aplicando arquivos do API Gateway:
+		minikube kubectl -- apply -f ./k8s/istio/gateway.yml
+
+		Verificando Serviço:
+			minikube kubectl -- -n istio-system get services
+
+	10. Configurando AutoScalling
+
+	    Habilitando Metricas:
+		    minikube addons enable metrics-server
+
+	    Aplicando Serviço:
+		    minikube kubectl -- apply -f ./k8s/02-hpa.yml
+
+	    Verificando AutoScalling:
+            minikube kubectl -- get hpa

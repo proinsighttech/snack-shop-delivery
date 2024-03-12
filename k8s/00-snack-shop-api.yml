@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: snack-shop-api
+spec:
+  ports:
+    - port: 9000
+  selector:
+    app: snack-shop-api
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: snack-shop-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: snack-shop-api
+  template:
+    metadata:
+      labels:
+        app: snack-shop-api
+    spec:
+      containers:
+        - name: snack-shop-api
+          image: snack-shop-delivery-internal-snack-shop-api:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DB_HOST
+              value: snack-shop-mysql
+          resources:
+            requests:
+              memory: "128M"
+              cpu: "100m" # 10 % de core de cada CPU
+          ports:
+            - containerPort: 9000

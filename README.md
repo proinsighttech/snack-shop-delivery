@@ -5,9 +5,21 @@
 
 O Snack Shop API é um sistema de gerenciamento para lanchonetes que oferece uma série de vantagens. Ele permite a realização de pedidos de forma eficiente e intuitiva, melhorando a experiência do cliente e otimizando o tempo dos funcionários.
 
-Com a Snack Shop API, é possível cadastrar produtos, usuários e ingredientes, permitindo um controle preciso do inventário e facilitando a gestão de recursos. Além disso, o sistema permite atribuir diferentes permissões a usuários, garantindo que cada membro da equipe tenha acesso apenas às informações e funcionalidades que precisa para realizar seu trabalho.
+A aplicação "Snack Shop API" é um sistema de gerenciamento para lanchonetes. Ela foi projetada para melhorar a eficiência operacional e proporcionar uma experiência superior aos clientes. Aqui estão os principais requisitos de negócios que a aplicação atende:  
 
-A API é construída com tecnologias robustas e modernas, garantindo a segurança e a escalabilidade necessárias para o crescimento do seu negócio.
+1. Gestão de Pedidos: A aplicação permite a realização de pedidos de forma eficiente e intuitiva. Os usuários podem listar todos os pedidos, listar um pedido por ID, adicionar um pedido e atualizar o status de um pedido.  
+
+2. Gestão de Usuários: A aplicação permite o gerenciamento de usuários. Os usuários podem ser listados, adicionados, atualizados e removidos. Além disso, os usuários podem ser adicionados a grupos e ter suas senhas alteradas.  
+
+3. Gestão de Grupos: A aplicação permite o gerenciamento de grupos de usuários. Os grupos podem ser listados, adicionados, atualizados e removidos. Além disso, as permissões podem ser listadas, adicionadas e removidas de um grupo.  
+
+4. Gestão de Produtos: A aplicação permite o gerenciamento de produtos. Os produtos podem ser listados, adicionados, atualizados e removidos.  
+
+5. Gestão de Ingredientes: A aplicação permite o gerenciamento de ingredientes. Os ingredientes podem ser listados, adicionados, atualizados e removidos.  
+
+6. Gestão de Métodos de Pagamento: A aplicação permite o gerenciamento de métodos de pagamento. Os métodos de pagamento podem ser listados, adicionados, atualizados e removidos.  
+
+7. Gestão de Lanchonetes (Snack Bars): A aplicação permite o gerenciamento de lanchonetes. As lanchonetes podem ser listadas, adicionadas, atualizadas e ativadas/desativadas. Além disso, os produtos, formas de pagamento e administradores de uma lanchonete podem ser gerenciados.
 
 Em resumo, a Snack Shop API é uma solução completa para lanchonetes que buscam melhorar sua eficiência operacional e proporcionar uma experiência superior aos seus clientes.
 

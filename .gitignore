@@ -36,3 +36,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/k8s/terraform/.terraform/
+/k8s/terraform/.terraform/

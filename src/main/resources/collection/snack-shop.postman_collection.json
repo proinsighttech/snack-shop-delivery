@@ -51,6 +51,21 @@
 				{
 					"name": "Groups - Add Group",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -62,7 +77,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "   {\r\n        \"name\": \"Support\"\r\n   }",
+							"raw": "   {\r\n        \"name\": \"SUPORTE_TECNICO\"\r\n   }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -111,7 +126,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/groups/4",
+							"raw": "http://localhost:9000/groups/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -119,7 +134,7 @@
 							"port": "9000",
 							"path": [
 								"groups",
-								"4"
+								"1"
 							]
 						}
 					},
@@ -128,6 +143,21 @@
 				{
 					"name": "Groups - Update",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -164,6 +194,21 @@
 				{
 					"name": "Groups - Remove",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -246,7 +291,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "amanda.pereira@email.com",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
@@ -284,6 +329,21 @@
 				{
 					"name": "Groups - Add Permission",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -313,6 +373,21 @@
 				{
 					"name": "Groups - Remove Permission",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -388,6 +463,21 @@
 				{
 					"name": "Users - Find",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -415,6 +505,21 @@
 				{
 					"name": "Users -  List  Groups",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -443,6 +548,21 @@
 				{
 					"name": "Users - Add Group",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -472,6 +592,21 @@
 				{
 					"name": "Users - Remove Group",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -501,6 +636,21 @@
 				{
 					"name": "Users - Add User",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -512,7 +662,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "   {\r\n    \"name\": \"João da Silva\",\r\n    \"email\": \"joao.ger@proinsight.com\",\r\n    \"cpf\": \"123.456.789-09\",\r\n    \"password\": \"123456\"\r\n}",
+							"raw": "   {\r\n    \"name\": \"José Alencar\",\r\n    \"email\": \"jose.ger@proinsight.com\",\r\n    \"cpf\": \"123.456.789-09\",\r\n    \"password\": \"J0534L3NC4R!*&\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -536,6 +686,21 @@
 				{
 					"name": "Users -  Update",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -572,6 +737,21 @@
 				{
 					"name": "Users -  Change Password",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -609,6 +789,21 @@
 				{
 					"name": "Users -  Remove",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -685,7 +880,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/orders?sort=clientId",
+							"raw": "http://localhost:9000/orders?filteredResults=true",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -697,7 +892,7 @@
 							"query": [
 								{
 									"key": "clientId",
-									"value": "4",
+									"value": "6",
 									"disabled": true
 								},
 								{
@@ -712,12 +907,12 @@
 								},
 								{
 									"key": "status",
-									"value": null,
+									"value": "Em Preparação",
 									"disabled": true
 								},
 								{
-									"key": "sort",
-									"value": "clientId"
+									"key": "filteredResults",
+									"value": "true"
 								}
 							]
 						}
@@ -732,7 +927,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "amanda.pereira@email.com",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
@@ -745,7 +940,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/orders/8ef7d26b-587b-48f0-926c-1ab75f0e8561",
+							"raw": "http://localhost:9000/orders/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -753,7 +948,7 @@
 							"port": "9000",
 							"path": [
 								"orders",
-								"8ef7d26b-587b-48f0-926c-1ab75f0e8561"
+								"5"
 							]
 						}
 					},
@@ -767,7 +962,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "amanda.pereira@email.com",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
@@ -781,7 +976,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"client\": {\r\n        \"cpf\": \"789.012.345-04\"\r\n    },\r\n    \"snackShop\": {\r\n        \"id\": 1\r\n    },\r\n    \"paymentMethod\": {\r\n        \"id\": 1\r\n    },\r\n    \"items\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 3\r\n        },\r\n        {\r\n            \"productId\": 2,\r\n            \"quantity\": 1,\r\n            \"observation\": \"Sem cebola\"\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"client\": {\r\n        \"cpf\": null\r\n    },\r\n    \"snackShop\": {\r\n        \"id\": 1\r\n    },\r\n    \"paymentMethod\": {\r\n        \"id\": 1\r\n    },\r\n    \"items\": [\r\n        {\r\n            \"productId\": 2,\r\n            \"quantity\": 1,\r\n            \"observation\": \"Sem cebola\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -810,7 +1005,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "amanda.pereira@email.com",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
@@ -823,7 +1018,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/orders/8ef7d26b-587b-48f0-926c-1ab75f0e8561/preparing",
+							"raw": "http://localhost:9000/orders/4/prepare",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -831,8 +1026,8 @@
 							"port": "9000",
 							"path": [
 								"orders",
-								"8ef7d26b-587b-48f0-926c-1ab75f0e8561",
-								"preparing"
+								"4",
+								"prepare"
 							]
 						}
 					},
@@ -841,10 +1036,25 @@
 				{
 					"name": "Orders - Cancel",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/orders/c7b0f25e-6c17-4d95-b8cf-927cc0803a99/cancel",
+							"raw": "http://localhost:9000/orders/2/cancel",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -852,7 +1062,7 @@
 							"port": "9000",
 							"path": [
 								"orders",
-								"c7b0f25e-6c17-4d95-b8cf-927cc0803a99",
+								"2",
 								"cancel"
 							]
 						}
@@ -867,7 +1077,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "amanda.pereira@email.com",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
@@ -880,7 +1090,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/orders/8ef7d26b-587b-48f0-926c-1ab75f0e8561/ready",
+							"raw": "http://localhost:9000/orders/4/ready",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -888,7 +1098,7 @@
 							"port": "9000",
 							"path": [
 								"orders",
-								"8ef7d26b-587b-48f0-926c-1ab75f0e8561",
+								"4",
 								"ready"
 							]
 						}
@@ -903,7 +1113,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "amanda.pereira@email.com",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
@@ -916,7 +1126,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/orders/8ef7d26b-587b-48f0-926c-1ab75f0e8561/delivery",
+							"raw": "http://localhost:9000/orders/4/delivery",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -924,7 +1134,7 @@
 							"port": "9000",
 							"path": [
 								"orders",
-								"8ef7d26b-587b-48f0-926c-1ab75f0e8561",
+								"4",
 								"delivery"
 							]
 						}
@@ -944,7 +1154,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "amanda.pereira@email.com",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
@@ -980,6 +1190,21 @@
 				{
 					"name": "PaymentMethods - Add",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -1015,6 +1240,21 @@
 				{
 					"name": "PaymentMethods - Find",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -1042,6 +1282,21 @@
 				{
 					"name": "PaymentMethods - Update",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -1078,6 +1333,21 @@
 				{
 					"name": "PaymentMethods - Remove",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -1124,7 +1394,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "carlos.santos@email.com",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
@@ -1252,6 +1522,21 @@
 				{
 					"name": "SnackShop - Active",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -1280,6 +1565,21 @@
 				{
 					"name": "SnackShop - Desactive",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -1311,6 +1611,21 @@
 						"disabledSystemHeaders": {}
 					},
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -1347,6 +1662,21 @@
 				{
 					"name": "SnackShops - List PaymentMethods",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -1375,6 +1705,21 @@
 				{
 					"name": "SnackShops - Add PaymentMethods",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -1404,6 +1749,21 @@
 				{
 					"name": "SnackShops - Remove PaymentMethods",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -1433,6 +1793,21 @@
 				{
 					"name": "SnackShops - List Admins",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -1461,6 +1836,21 @@
 				{
 					"name": "SnackShops - Add Admin",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -1490,6 +1880,21 @@
 				{
 					"name": "SnackShops - Remove Admin",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -1529,7 +1934,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "amanda.pereira@email.com",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
@@ -1573,7 +1978,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "amanda.pereira@email.com",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
@@ -1593,7 +1998,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/snackshops/1/products?active=true&category=Sobremesa",
+							"raw": "http://localhost:9000/snackshops/1/products",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1607,11 +2012,13 @@
 							"query": [
 								{
 									"key": "active",
-									"value": "true"
+									"value": "true",
+									"disabled": true
 								},
 								{
 									"key": "category",
-									"value": "Sobremesa"
+									"value": "Sobremesa",
+									"disabled": true
 								}
 							]
 						}
@@ -1647,7 +2054,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"X-Salada\",\r\n    \"description\": \"Hambúrguer com alface, tomate, queijo e molho especial, tudo no pão de hambúrguer.\",\r\n    \"price\": 8.99,\r\n    \"active\": true\r\n}",
+							"raw": "{\r\n    \"name\": \"X-Salada\",\r\n    \"description\": \"Hambúrguer com alface, tomate, queijo e molho especial, tudo no pão de hambúrguer.\",\r\n    \"category\": \"SNACK\",\r\n    \"price\": 8.99,\r\n    \"active\": true\r\n}\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1673,6 +2080,21 @@
 				{
 					"name": "Product - Update",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -1711,6 +2133,21 @@
 				{
 					"name": "Products - Remove",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -1759,7 +2196,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "amanda.pereira@email.com",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
@@ -1800,7 +2237,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "amanda.pereira@email.com",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
@@ -1863,7 +2300,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Cebola Roxa\",\r\n    \"description\": \"Utilizada em Saladas\",\r\n    \"quantity\": 1\r\n}",
+							"raw": "{\r\n    \"name\": \"Cebola Roxa\",\r\n    \"description\": \"Utilizada em Saladas\",\r\n    \"quantity\": 1\r\n}\r\n\r\n\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1887,6 +2324,21 @@
 				{
 					"name": "Produtos - Atualizar",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -1925,6 +2377,21 @@
 				{
 					"name": "Produtos - Remover",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -1955,64 +2422,6 @@
 								"1",
 								"products",
 								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Orders - List Copy",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "amanda.pereira@email.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "Accept",
-								"value": "application/pdf,application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:9000/ingredients",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"ingredients"
-							],
-							"query": [
-								{
-									"key": "productId",
-									"value": "1",
-									"disabled": true
-								}
 							]
 						}
 					},

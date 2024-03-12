@@ -1,5 +1,6 @@
 package com.proinsight.api.security;
 
+import com.proinsight.api.model.OrderModel;
 import com.proinsight.domain.repository.OrderRepository;
 import com.proinsight.domain.repository.SnackShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,15 @@ public class SnackShopSecurity {
                 && getUserId().equals(userId);
     }
 
+    public boolean authenticatedUserEquals(OrderModel orderModel) {
+        if (orderModel == null) {
+            return false;
+        }
+        Long clientId = orderModel.getClient().getId();
+        return getUserId() != null && clientId != null
+                && getUserId().equals(clientId);
+    }
+
     public boolean hasAuthority(String authorityName) {
         return getAuthentication().getAuthorities().stream()
                 .anyMatch(authority -> authority.getAuthority().equals(authorityName));
@@ -47,11 +57,14 @@ public class SnackShopSecurity {
         return hasAuthority("SCOPE_READ");
     }
 
-    public boolean gerenciaLanchonete(Long snackShopId) {
+    public boolean gerenciaLanchonete(OrderModel orderModel) {
+        if (orderModel == null) {
+            return false;
+        }
+        Long snackShopId = orderModel.getSnackShop().getId();
         if (snackShopId == null) {
             return false;
         }
-
         return snackShopRepository.existsAdmin(snackShopId, getUserId());
     }
 
@@ -80,9 +93,9 @@ public class SnackShopSecurity {
         return hasAuthority("EDITAR_USUARIOS_GRUPOS_PERMISSOES");
     }
 
-    public boolean podePesquisarPedidos(Long clienteId, Long snackShopId) {
+    public boolean podePesquisarPedidos(Long clienteId, OrderModel orderModel) {
         return hasAuthority("CONSULTAR_PEDIDOS")
-                || authenticatedUserEquals(clienteId) || gerenciaLanchonete(snackShopId);
+                || authenticatedUserEquals(clienteId) || gerenciaLanchonete(orderModel);
     }
     public boolean podePesquisarPedidos() {
         return isAuthenticated();

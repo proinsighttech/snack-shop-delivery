@@ -5,22 +5,24 @@ import lombok.Getter;
 import java.util.Arrays;
 import java.util.List;
 
+@Getter
 public enum OrderStatus {
 
-    CREATED("Criado"),
-    RECEIVED("Recebido", CREATED),
-    CANCELED("Cancelado", RECEIVED),
-    CONFIRMED("Confirmado", RECEIVED),
-    IN_PROGRESS("Em Preparação", CONFIRMED),
-    READY("Pronto", IN_PROGRESS),
-    DELIVERED("Entregue", READY);
+    CREATED("Criado",4),
+    RECEIVED("Recebido",3, CREATED),
+    CANCELED("Cancelado",7, RECEIVED),
+    CONFIRMED("Confirmado",6, RECEIVED),
+    IN_PROGRESS("Em Preparação",2, CONFIRMED),
+    READY("Pronto",1, IN_PROGRESS),
+    DELIVERED("Entregue",5, READY);
 
-    @Getter
     private String description;
     private List<OrderStatus> previousStatus;
+    private int order;
 
-    OrderStatus(String description, OrderStatus... previousStatus) {
+    OrderStatus(String description,  int order, OrderStatus... previousStatus) {
         this.description = description;
+        this.order = order;
         this.previousStatus = Arrays.asList(previousStatus);
     }
 

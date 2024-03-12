@@ -9,7 +9,7 @@ import org.springframework.hateoas.PagedModel;
 
 public interface OrderFacade {
 
-    PagedModel<OrderResumeModel> findAll(OrderFilter filter, Pageable pageable);
+    PagedModel<OrderResumeModel> findAll(OrderFilter filter, Pageable pageable, boolean filteredResults);
 
     OrderModel addOrder(OrderInput orderInput) ;
 

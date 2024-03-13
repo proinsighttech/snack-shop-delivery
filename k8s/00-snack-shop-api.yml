@@ -7,6 +7,7 @@ spec:
     - port: 9000
   selector:
     app: snack-shop-api
+  type: LoadBalancer  # <--- Adiciona uma camada de balanceamento de carga
 ---
 apiVersion: apps/v1
 kind: Deployment

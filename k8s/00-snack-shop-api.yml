@@ -25,7 +25,8 @@ spec:
     spec:
       containers:
         - name: snack-shop-api
-          image: snack-shop-delivery-internal-snack-shop-api:latest
+          image: snack-shop-delivery-internal-snack-shop-api:latest #Imagem Local
+#          image: 688977122149:dkr.ecr.us-us-east-2.amazonaws.com/snack-shop-delivery-internal-snack-shop-api:latest  #Imagem ECR AWS
           imagePullPolicy: IfNotPresent
           env:
             - name: DB_HOST

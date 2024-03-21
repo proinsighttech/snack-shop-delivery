@@ -7,7 +7,7 @@ spec:
     - port: 3306
   selector:
     app: snack-shop-mysql
-    type: LoadBalancer  # <--- Adiciona uma camada de balanceamento de carga
+    type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment

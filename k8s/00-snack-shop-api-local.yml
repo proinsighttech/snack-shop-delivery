@@ -25,7 +25,8 @@ spec:
     spec:
       containers:
         - name: snack-shop-api
-          image: 279044386247.dkr.ecr.us-west-2.amazonaws.com/snack-shop-delivery-internal-snack-shop-api:latest  #Imagem ECR AWS
+          image: snack-shop-delivery-internal-snack-shop-api:latest #Imagem Local
+          imagePullPolicy: IfNotPresent
           env:
             - name: DB_HOST
               value: snack-shop-mysql

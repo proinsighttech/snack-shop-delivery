@@ -196,3 +196,162 @@ Para listar os ingredientes cadastrados na aplicação definimos uma pasta dentr
 - Listando Ingrediente em Estoque
 ![Ingredients](src/main/resources/images/documentation/find-ingredient-by-id.png)
 
+---------------------------------------
+
+# Implementando Microsserviços em Kubernetes Local com Minkube
+
+### Pré-Requisitos
+* Docker (Instalação: https://www.docker.com/get-started/)
+* Chocolatey (Instalação: https://chocolatey.org/install)
+* Minikube (Instalação: https://minikube.sigs.k8s.io/docs/start/)
+* Istio (Instalação: https://istio.io/latest/docs/setup/getting-started/)
+
+
+### Instalando Minikube
+
+Você precisa ter o Minikube instalado para criar um cluster Kubernetes localmente. Consulte a documentação oficial do Minikube para obter instruções de instalação.
+Podemos instalar o Minikube usando o Chocolatey:
+
+    choco install minikube
+
+###  Acessando o Projeto
+Navegue até o diretório do projeto:
+
+    cd snack-shop-delivery-internal
+
+
+## Executando Minikube
+### Inicie o Minikube:
+
+    minikube start
+
+## Deploy do Cluster
+Dentro do ambiente Minikube, execute os seguintes comandos:
+
+# Configurar o ambiente Docker para usar o Minikube
+### UNIX
+    eval $(minikube -p minikube docker-env)
+### WINDOWS
+    minikube -p minikube docker-env | Invoke-Expression
+
+### Verificar as imagens Docker
+    docker images
+
+### Build da aplicação
+    docker-compose build
+
+### Verificar o kubectl
+    minikube kubectl -- version
+
+### Aplicar os arquivos da aplicação
+    minikube kubectl -- apply -f ./k8s/00-snack-shop-api-local.yml
+    minikube kubectl -- apply -f ./k8s/01-snack-shop-mysql.yml
+
+### Verificar os pods
+    minikube kubectl -- get pods
+
+### Ativar o serviço de Load Balance
+    minikube tunnel
+
+### Verificar os serviços em execução
+    minikube kubectl -- get services
+
+### Testar no Postman
+Após a implantação, teste os serviços usando o Postman com o IP fornecido pelo comando ' minikube kubectl -- get services' na porta 9000.
+
+### Instalar Istio
+Você pode instalar o Istio como um Service Mesh ou Sidecar Proxy. Consulte a documentação oficial do Istio para obter mais informações.
+Prodemos instalar o Istio usando o Chocolatey:
+
+    choco install istioctl
+
+### Configurar Istio
+Após a instalação, configure o Istio:
+
+    istioctl install
+
+### Habilitando o Istio para o namespace padrão
+    kubectl label namespace default istio-injection=enabled
+
+### Aplicando Arquivos do API Gateway
+Aplique os arquivos do API Gateway:
+
+    minikube kubectl -- apply -f ./k8s/istio/gateway.yml
+
+### Verificar o serviço
+    minikube kubectl -- -n istio-system get services
+
+## Configurando AutoScalling
+Para configurar o AutoScaling, siga as etapas abaixo:
+
+### Habilitar métricas
+    minikube addons enable metrics-server
+
+### Aplicar o serviço
+    minikube kubectl -- apply -f ./k8s/02-hpa.yml
+
+### Verificar o AutoScaling
+    minikube kubectl -- get hpa
+
+Este Readme fornece instruções detalhadas para implantar e testar microsserviços usando Kubernetes.
+Certifique-se de seguir cada passo cuidadosamente para uma implementação bem-sucedida.
+
+---------------------------------------
+
+# Implementando Microsserviços em Cloud AWS com EKS e Terraform
+
+### Pré-Requisitos
+* Docker (Instalação: https://www.docker.com/get-started/)
+* Chocolatey (Instalação: https://chocolatey.org/install)
+* Terraform (Instalação: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+
+### Instalando Terraform
+Podemos instalar o Terraform usando o Chocolatey:
+    choco install terraform
+
+###  Acessando os arquivos do Terraform
+Navegue até o diretório do projeto:
+
+    cd snack-shop-delivery-internal/terraform
+
+### Crianção do Cluster EKS e Ambiente AWS
+    terraform apply --auto-approve
+
+### Conectar com Cluster
+  aws eks --region us-west-2 update-kubeconfig --name snackshop-cluster
+
+### Criar Imagem Docker
+    docker-compose build
+
+### Verificar as imagens Docker
+    docker images
+
+### Subir imagem no ECR usando comando da AWS
+    aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin ************.dkr.ecr.us-west-2.amazonaws.com
+    docker build -t snack-shop-delivery-internal-snack-shop-api .    
+    docker tag snack-shop-delivery-internal-snack-shop-api:latest ************.dkr.ecr.us-west-2.amazonaws.com/snack-shop-delivery-internal-snack-shop-api:latest
+    docker push ************.dkr.ecr.us-west-2.amazonaws.com/snack-shop-delivery-internal-snack-shop-api:latest
+
+### Verificar o kubectl
+    kubectl version
+
+### Verificar nós criados
+    kubectl get nodes
+
+### Preparar aplicações
+  kubectl apply -f ..\k8s\00-snack-shop-api.yml  
+  kubectl apply -f ..\k8s\01-snack-shop-mysql.yml
+  kubectl apply -f ..\k8s\02-hpa.yml
+
+### Verificar status da implementação
+    kubectl get deployments
+
+### Verificar pods em execução
+    kubectl get pods
+
+### Verificando Services
+    kubectl get services
+
+### Testar no Postman
+Após a implantação, teste os serviços usando o Postman com o DNS da AWS fornecido pelo comando 'kubectl get services' na porta 9000.

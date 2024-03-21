@@ -36,7 +36,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
-/k8s/terraform/.terraform/
-/k8s/terraform/.terraform.lock.hcl
-/k8s/terraform/terraform.tfstate
-/k8s/terraform/terraform.tfstate.backup
+/terraform/.terraform/
+/terraform/.terraform.lock.hcl
+/terraform/terraform.tfstate
+/terraform/terraform.tfstate.backup

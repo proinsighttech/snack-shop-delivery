@@ -11,13 +11,15 @@ module "eks" {
 
   cluster_addons = {
     coredns = {
-      most_recent = true
+      most_recent                 = true
+      resolve_conflicts           = "OVERWRITE"
     }
     kube-proxy = {
-      most_recent = true
+      most_recent                 = true
     }
     vpc-cni = {
-      most_recent = true
+      most_recent                 = true
+      resolve_conflicts           = "OVERWRITE"
     }
   }
 
@@ -80,7 +82,7 @@ module "eks" {
   }
 
   # aws-auth configmap
-  manage_aws_auth_configmap = true
+  manage_aws_auth_configmap = false
 
   aws_auth_roles = [
     {

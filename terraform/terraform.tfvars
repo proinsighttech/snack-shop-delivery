@@ -18,7 +18,7 @@ vpc_id                              = "vpc-03ff6e3c383770fe7"
 subnet_ids                          = ["subnet-03a5221550ebcaa7a", "subnet-093d549666b80aeb6", "subnet-0ddb10d62fe5cc33a"]
 
 // Node Group EC2
-instance_type_1                     = "t3.medium"
-instance_type_2                     = "t2.small"
-instance_type_3                     = "t2.small"
+instance_type_1                     = "t3a.medium"
+instance_type_2                     = "t3.medium"
+instance_type_3                     = "t3a.large"
 instance_capacity_type              = "SPOT"

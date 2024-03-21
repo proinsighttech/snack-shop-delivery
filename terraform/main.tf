@@ -2,9 +2,19 @@ provider "aws" {
   region = var.region
 }
 
+data "aws_eks_cluster_auth" "cluster" {
+  name = module.eks.cluster_id
+}
+
+provider "kubernetes" {
+  host                   = module.eks.cluster_endpoint
+  cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
+  token                  = data.aws_eks_cluster_auth.cluster.token
+}
+
 module "eks" {
   source                            = "terraform-aws-modules/eks/aws"
-  version                           = "~> 19.0"
+  version                           = "~> 18.0"
   cluster_name                      = var.cluster_name
   cluster_version                   = var.cluster_version
   cluster_endpoint_public_access    = var.cluster_endpoint_public_access
@@ -12,14 +22,12 @@ module "eks" {
   cluster_addons = {
     coredns = {
       most_recent                 = true
-      resolve_conflicts           = "OVERWRITE"
     }
     kube-proxy = {
       most_recent                 = true
     }
     vpc-cni = {
       most_recent                 = true
-      resolve_conflicts           = "OVERWRITE"
     }
   }
 
@@ -31,9 +39,9 @@ module "eks" {
   self_managed_node_group_defaults = {
     instance_type                          = var.instance_type_1
     update_launch_template_default_version = true
-    iam_role_additional_policies = {
-      AmazonSSMManagedInstanceCore = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-    }
+    iam_role_additional_policies = [
+      "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+    ]
   }
 
   self_managed_node_groups = {
@@ -82,7 +90,7 @@ module "eks" {
   }
 
   # aws-auth configmap
-  manage_aws_auth_configmap = false
+  manage_aws_auth_configmap = true
 
   aws_auth_roles = [
     {

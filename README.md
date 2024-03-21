@@ -319,7 +319,7 @@ Navegue até o diretório do projeto:
     terraform apply --auto-approve
 
 ### Conectar com Cluster
-  aws eks --region us-west-2 update-kubeconfig --name snackshop-cluster
+    aws eks --region us-west-2 update-kubeconfig --name snackshop-cluster
 
 ### Criar Imagem Docker
     docker-compose build
@@ -340,9 +340,9 @@ Navegue até o diretório do projeto:
     kubectl get nodes
 
 ### Preparar aplicações
-  kubectl apply -f ..\k8s\00-snack-shop-api.yml  
-  kubectl apply -f ..\k8s\01-snack-shop-mysql.yml
-  kubectl apply -f ..\k8s\02-hpa.yml
+    kubectl apply -f ..\k8s\00-snack-shop-api.yml
+    kubectl apply -f ..\k8s\01-snack-shop-mysql.yml
+    kubectl apply -f ..\k8s\02-hpa.yml
 
 ### Verificar status da implementação
     kubectl get deployments

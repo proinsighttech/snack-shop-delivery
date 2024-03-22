@@ -14,7 +14,7 @@ kind: Deployment
 metadata:
   name: snack-shop-api
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: snack-shop-api
@@ -25,9 +25,14 @@ spec:
     spec:
       containers:
         - name: snack-shop-api
-          image: 279044386247.dkr.ecr.us-west-2.amazonaws.com/snack-shop-delivery-internal-snack-shop-api:latest  #Imagem ECR AWS
+          image: snack-shop-delivery-internal-snack-shop-api:latest #Imagem Local
+          imagePullPolicy: IfNotPresent
           env:
             - name: DB_HOST
               value: snack-shop-mysql
           ports:
             - containerPort: 9000
+          resources:
+            requests:
+              memory: "128M"
+              cpu: "100m" # 10 % de core de cada CPU

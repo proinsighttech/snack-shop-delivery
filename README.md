@@ -42,6 +42,9 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 - [Docker](https://www.docker.com/products/docker-desktop)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
+## Arquitetura
+![Arquitetura_local](src/main/resources/images/documentation/arquitetura-local.png)
+
 ## 🚀 Como executar o projeto
 
 ### ⚙️ Rodando o Backend (servidor)
@@ -207,6 +210,9 @@ Para listar os ingredientes cadastrados na aplicação definimos uma pasta dentr
 * Istio (Instalação: https://istio.io/latest/docs/setup/getting-started/)
 
 
+### Arquitetura com Kubernetes Local
+![Arquitetura_local](src/main/resources/images/documentation/arquitetura-kubernetes.png)
+
 ### Instalando Minikube
 
 Você precisa ter o Minikube instalado para criar um cluster Kubernetes localmente. Consulte a documentação oficial do Minikube para obter instruções de instalação.
@@ -219,45 +225,84 @@ Navegue até o diretório do projeto:
 
     cd snack-shop-delivery-internal
 
-
 ## Executando Minikube
 ### Inicie o Minikube:
 
     minikube start
 
+![Minikube](src/main/resources/images/documentation/01-minikube-start.png)
+
 ## Deploy do Cluster
-Dentro do ambiente Minikube, execute os seguintes comandos:
+ A seguir, vamos implantar a aplicação no cluster Kubernetes local usando o Minikube.
 
 # Configurar o ambiente Docker para usar o Minikube
+Entrando dentro do terminal do Minikube:
 ### UNIX
     eval $(minikube -p minikube docker-env)
 ### WINDOWS
     minikube -p minikube docker-env | Invoke-Expression
 
 ### Verificar as imagens Docker
+Verifique se as imagens Docker estão disponíveis para o Minikube:
+
     docker images
 
 ### Build da aplicação
+Faça o build da aplicação usando o Docker Compose:
+
     docker-compose build
+
+![Docker](src/main/resources/images/documentation/02-configurando-minikube-docker.png)
 
 ### Verificar o kubectl
     minikube kubectl -- version
 
-### Aplicar os arquivos da aplicação
-    minikube kubectl -- apply -f ./k8s/00-snack-shop-api-local.yml
-    minikube kubectl -- apply -f ./k8s/01-snack-shop-mysql.yml
+### Preparando os arquivos da aplicação
+Aplicando os arquivos de deployment e service da aplicação:
 
-### Verificar os pods
+    minikube kubectl -- apply -f ./k8s/00-snack-shop-mysql.yml
+
+### Verifique se o servico do mySQL está em execução antes de subir a aplicação
     minikube kubectl -- get pods
 
+![Arquivos](src/main/resources/images/documentation/05a-aplicando-arquivos.png)
+
+
+### Aplicando os arquivos da aplicação
+Com o MySQL em execução, aplique os arquivos da aplicação:
+
+    minikube kubectl -- apply -f ./k8s/01-snack-shop-api-local.yml
+    
+
+![Arquivos](src/main/resources/images/documentation/05-aplicando-arquivos.png)
+
+
+### Verificar os pods
+Verifique se os pods estão em execução:
+
+    minikube kubectl -- get pods
+
+![Pods](src/main/resources/images/documentation/06-pods.png)
+
+
 ### Ativar o serviço de Load Balance
+Abra um novo terminal e execute o comando abaixo para ativar o serviço de Load Balance e expor o IP da aplicação:
+
     minikube tunnel
 
+![Tunel](src/main/resources/images/documentation/07-tunel.png)
+
 ### Verificar os serviços em execução
+Após a ativação do serviço de Load Balance, verifique os serviços em execução:
+
     minikube kubectl -- get services
+
+![Servicos](src/main/resources/images/documentation/08-servicos.png)
 
 ### Testar no Postman
 Após a implantação, teste os serviços usando o Postman com o IP fornecido pelo comando ' minikube kubectl -- get services' na porta 9000.
+
+![Postan](src/main/resources/images/documentation/11-postman.png)
 
 ### Instalar Istio
 Você pode instalar o Istio como um Service Mesh ou Sidecar Proxy. Consulte a documentação oficial do Istio para obter mais informações.
@@ -270,6 +315,8 @@ Após a instalação, configure o Istio:
 
     istioctl install
 
+![Istio](src/main/resources/images/documentation/09-istio.png)
+
 ### Habilitando o Istio para o namespace padrão
     kubectl label namespace default istio-injection=enabled
 
@@ -277,6 +324,8 @@ Após a instalação, configure o Istio:
 Aplique os arquivos do API Gateway:
 
     minikube kubectl -- apply -f ./k8s/istio/gateway.yml
+
+![GAteway](src/main/resources/images/documentation/10-gateway-istio.png)
 
 ### Verificar o serviço
     minikube kubectl -- -n istio-system get services
@@ -304,6 +353,10 @@ Certifique-se de seguir cada passo cuidadosamente para uma implementação bem-s
 * Docker (Instalação: https://www.docker.com/get-started/)
 * Chocolatey (Instalação: https://chocolatey.org/install)
 * Terraform (Instalação: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+
+### Arquitetura com Kubernetes Local
+![Arquitetura_local](src/main/resources/images/documentation/arquitetura-cloud.png)
 
 
 ### Instalando Terraform
@@ -339,9 +392,29 @@ Navegue até o diretório do projeto:
 ### Verificar nós criados
     kubectl get nodes
 
-### Preparar aplicações
-    kubectl apply -f ..\k8s\00-snack-shop-api.yml
-    kubectl apply -f ..\k8s\01-snack-shop-mysql.yml
+![Noes](src/main/resources/images/documentation/12-nodes-aws.png)
+
+### Preparando os arquivos da aplicação
+Aplicando os arquivos de deployment e service da aplicação:
+
+    kubectl apply -f ..\k8s\00-snack-shop-mysql.yml
+
+### Verifique se o servico do mySQL está em execução antes de subir a aplicação
+    kubectl get pods
+
+![Arquivos](src/main/resources/images/documentation/05a-aplicando-arquivos.png)
+
+
+### Aplicando os arquivos da aplicação
+Com o MySQL em execução, aplique os arquivos da aplicação:
+
+    kubectl apply -f ..\k8s\01-snack-shop-api.yml
+
+
+![Arquivos](src/main/resources/images/documentation/05-aplicando-arquivos.png)
+
+### Aplique os arquivos do API Gateway
+    
     kubectl apply -f ..\k8s\02-hpa.yml
 
 ### Verificar status da implementação
@@ -352,6 +425,12 @@ Navegue até o diretório do projeto:
 
 ### Verificando Services
     kubectl get services
+
+![Services_AWS](src/main/resources/images/documentation/13-services-aws.png)
+
+
+### Verificando Logs
+    kubectl logs -f <pod-name> --tail
 
 ### Testar no Postman
 Após a implantação, teste os serviços usando o Postman com o DNS da AWS fornecido pelo comando 'kubectl get services' na porta 9000.

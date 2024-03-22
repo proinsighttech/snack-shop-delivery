@@ -434,3 +434,5 @@ Com o MySQL em execução, aplique os arquivos da aplicação:
 
 ### Testar no Postman
 Após a implantação, teste os serviços usando o Postman com o DNS da AWS fornecido pelo comando 'kubectl get services' na porta 9000.
+
+![Postman_AWS](src/main/resources/images/documentation/14-postman-aws.png)

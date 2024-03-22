@@ -25,10 +25,13 @@ spec:
     spec:
       containers:
         - name: snack-shop-api
-          image: snack-shop-delivery-internal-snack-shop-api:latest #Imagem Local
-          imagePullPolicy: IfNotPresent
+          image: 279044386247.dkr.ecr.us-west-2.amazonaws.com/snack-shop-delivery-internal-snack-shop-api:latest  #Imagem ECR AWS
           env:
             - name: DB_HOST
               value: snack-shop-mysql
           ports:
             - containerPort: 9000
+          resources:
+            requests:
+              memory: "128M"
+              cpu: "100m" # 10 % de core de cada CPU

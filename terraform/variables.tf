@@ -120,3 +120,14 @@ variable "subnet_ids" {
   type        = list(string)
 }
 
+//AWS ECR Repository Name
+variable "repository_name" {
+  description = "ECR Repository Name"
+  type        = string
+}
+
+//AWS ECR Image Name
+variable "image_name" {
+  description = "ECR Image Name"
+  type        = string
+}

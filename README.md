@@ -26,7 +26,7 @@ Em resumo, a Snack Shop API é uma solução completa para lanchonetes que busca
 ## 📄 Diagramas de negócio
 - [Processos](https://miro.com/app/board/uXjVNzyqNFE=/)
 - Diagrama de Objetos
-  ![Diagrama](src/main/resources/images/documentation/snack-shop-delivery.drawio.png)
+  ![Diagrama](src/main/resources/documentation/images/snack-shop-delivery.drawio.png)
 
 ## 💻 Tecnologias
 
@@ -43,7 +43,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Arquitetura
-![Arquitetura_local](src/main/resources/images/documentation/arquitetura-local.png)
+![Arquitetura_local](src/main/resources/documentation/images/arquitetura-local.png)
 
 ## 🚀 Como executar o projeto
 
@@ -95,7 +95,7 @@ Para listar os grupos cadastrados na aplicação definimos uma pasta dentro da C
 
 ### Exemplo de Requisição
 - Buscando Grupo por ID
-![Group by ID](src/main/resources/images/documentation/group-by-id.png)
+![Group by ID](src/main/resources/documentation/images/group-by-id.png)
 
 ### 👤 Usuários
 
@@ -113,7 +113,7 @@ Para listar os usuários cadastrados na aplicação definimos uma pasta dentro d
 
 ### Exemplo de Requisição
 - Adicionando Usuário
-![User by ID](src/main/resources/images/documentation/add-user.png)
+![User by ID](src/main/resources/documentation/images/add-user.png)
 
 
 ### 🛒 Pedidos
@@ -128,7 +128,7 @@ Para listar os pedidos cadastrados na aplicação definimos uma pasta dentro da 
 ### Exemplo de Requisição
 - Listando Pedidos
 Ao listar os pedidos podemos filtar por status, intervalo de data de criação e usuário.
-![Orders](src/main/resources/images/documentation/list-orders.png)
+![Orders](src/main/resources/documentation/images/list-orders.png)
 
 
 ### 💳 Métodos de Pagamento
@@ -143,7 +143,7 @@ Para listar os metodos de pagamento cadastrados na aplicação definimos uma pas
 
 ### Exemplo de Requisição
 - Listando Metodos de Pagamento
-![Payment Methods](src/main/resources/images/documentation/list-payment-methods.png)
+![Payment Methods](src/main/resources/documentation/images/list-payment-methods.png)
 
 ### 🍔 Lanchonetes
 
@@ -164,7 +164,7 @@ Para listar as lanchonetes cadastradas na aplicação definimos uma pasta dentro
 
 ### Exemplo de Requisição
 - Listando Lanchonetes
-![Snack Bars](src/main/resources/images/documentation/find-snack-shop-by-id.png)
+![Snack Bars](src/main/resources/documentation/images/find-snack-shop-by-id.png)
 
 
 ### 📦 Produtos
@@ -179,7 +179,7 @@ Para listar os produtos cadastrados na aplicação definimos uma pasta dentro da
 
 ### Exemplo de Requisição
 - Adicionando Produto
-![Products](src/main/resources/images/documentation/add-product.png)
+![Products](src/main/resources/documentation/images/add-product.png)
 
 
 
@@ -197,7 +197,7 @@ Para listar os ingredientes cadastrados na aplicação definimos uma pasta dentr
 
 ### Exemplo de Requisição
 - Listando Ingrediente em Estoque
-![Ingredients](src/main/resources/images/documentation/find-ingredient-by-id.png)
+![Ingredients](src/main/resources/documentation/images/find-ingredient-by-id.png)
 
 ---------------------------------------
 
@@ -211,7 +211,7 @@ Para listar os ingredientes cadastrados na aplicação definimos uma pasta dentr
 
 
 ### Arquitetura com Kubernetes Local
-![Arquitetura_local](src/main/resources/images/documentation/arquitetura-kubernetes.png)
+![Arquitetura_local](src/main/resources/documentation/images/arquitetura-kubernetes.png)
 
 ### Instalando Minikube
 
@@ -230,7 +230,7 @@ Navegue até o diretório do projeto:
 
     minikube start
 
-![Minikube](src/main/resources/images/documentation/01-minikube-start.png)
+![Minikube](src/main/resources/documentation/images/01-minikube-start.png)
 
 ## Deploy do Cluster
  A seguir, vamos implantar a aplicação no cluster Kubernetes local usando o Minikube.
@@ -252,7 +252,7 @@ Faça o build da aplicação usando o Docker Compose:
 
     docker-compose build
 
-![Docker](src/main/resources/images/documentation/02-configurando-minikube-docker.png)
+![Docker](src/main/resources/documentation/images/02-configurando-minikube-docker.png)
 
 ### Verificar o kubectl
     minikube kubectl -- version
@@ -265,7 +265,7 @@ Aplicando os arquivos de deployment e service da aplicação:
 ### Verifique se o servico do mySQL está em execução antes de subir a aplicação
     minikube kubectl -- get pods
 
-![Arquivos](src/main/resources/images/documentation/05a-aplicando-arquivos.png)
+![Arquivos](src/main/resources/documentation/images/05a-aplicando-arquivos.png)
 
 
 ### Aplicando os arquivos da aplicação
@@ -274,7 +274,7 @@ Com o MySQL em execução, aplique os arquivos da aplicação:
     minikube kubectl -- apply -f ./k8s/01-snack-shop-api-local.yml
     
 
-![Arquivos](src/main/resources/images/documentation/05-aplicando-arquivos.png)
+![Arquivos](src/main/resources/documentation/images/05-aplicando-arquivos.png)
 
 
 ### Verificar os pods
@@ -282,7 +282,7 @@ Verifique se os pods estão em execução:
 
     minikube kubectl -- get pods
 
-![Pods](src/main/resources/images/documentation/06-pods.png)
+![Pods](src/main/resources/documentation/images/06-pods.png)
 
 
 ### Ativar o serviço de Load Balance
@@ -290,19 +290,19 @@ Abra um novo terminal e execute o comando abaixo para ativar o serviço de Load 
 
     minikube tunnel
 
-![Tunel](src/main/resources/images/documentation/07-tunel.png)
+![Tunel](src/main/resources/documentation/images/07-tunel.png)
 
 ### Verificar os serviços em execução
 Após a ativação do serviço de Load Balance, verifique os serviços em execução:
 
     minikube kubectl -- get services
 
-![Servicos](src/main/resources/images/documentation/08-servicos.png)
+![Servicos](src/main/resources/documentation/images/08-servicos.png)
 
 ### Testar no Postman
 Após a implantação, teste os serviços usando o Postman com o IP fornecido pelo comando ' minikube kubectl -- get services' na porta 9000.
 
-![Postan](src/main/resources/images/documentation/11-postman.png)
+![Postan](src/main/resources/documentation/images/11-postman.png)
 
 ### Instalar Istio
 Você pode instalar o Istio como um Service Mesh ou Sidecar Proxy. Consulte a documentação oficial do Istio para obter mais informações.
@@ -315,7 +315,7 @@ Após a instalação, configure o Istio:
 
     istioctl install
 
-![Istio](src/main/resources/images/documentation/09-istio.png)
+![Istio](src/main/resources/documentation/images/09-istio.png)
 
 ### Habilitando o Istio para o namespace padrão
     kubectl label namespace default istio-injection=enabled
@@ -325,7 +325,7 @@ Aplique os arquivos do API Gateway:
 
     minikube kubectl -- apply -f ./k8s/istio/gateway.yml
 
-![GAteway](src/main/resources/images/documentation/10-gateway-istio.png)
+![GAteway](src/main/resources/documentation/images/10-gateway-istio.png)
 
 ### Verificar o serviço
     minikube kubectl -- -n istio-system get services
@@ -356,7 +356,7 @@ Certifique-se de seguir cada passo cuidadosamente para uma implementação bem-s
 
 
 ### Arquitetura com Kubernetes Local
-![Arquitetura_local](src/main/resources/images/documentation/arquitetura-cloud.png)
+![Arquitetura_local](src/main/resources/documentation/images/arquitetura-cloud.png)
 
 
 ### Instalando Terraform
@@ -392,7 +392,7 @@ Navegue até o diretório do projeto:
 ### Verificar nós criados
     kubectl get nodes
 
-![Noes](src/main/resources/images/documentation/12-nodes-aws.png)
+![Noes](src/main/resources/documentation/images/12-nodes-aws.png)
 
 ### Preparando os arquivos da aplicação
 Aplicando os arquivos de deployment e service da aplicação:
@@ -402,7 +402,7 @@ Aplicando os arquivos de deployment e service da aplicação:
 ### Verifique se o servico do mySQL está em execução antes de subir a aplicação
     kubectl get pods
 
-![Arquivos](src/main/resources/images/documentation/05a-aplicando-arquivos.png)
+![Arquivos](src/main/resources/documentation/images/05a-aplicando-arquivos.png)
 
 
 ### Aplicando os arquivos da aplicação
@@ -411,7 +411,7 @@ Com o MySQL em execução, aplique os arquivos da aplicação:
     kubectl apply -f ..\k8s\01-snack-shop-api.yml
 
 
-![Arquivos](src/main/resources/images/documentation/05-aplicando-arquivos.png)
+![Arquivos](src/main/resources/documentation/images/05-aplicando-arquivos.png)
 
 ### Aplique os arquivos do API Gateway
     
@@ -426,7 +426,7 @@ Com o MySQL em execução, aplique os arquivos da aplicação:
 ### Verificando Services
     kubectl get services
 
-![Services_AWS](src/main/resources/images/documentation/13-services-aws.png)
+![Services_AWS](src/main/resources/documentation/images/13-services-aws.png)
 
 
 ### Verificando Logs
@@ -435,4 +435,10 @@ Com o MySQL em execução, aplique os arquivos da aplicação:
 ### Testar no Postman
 Após a implantação, teste os serviços usando o Postman com o DNS da AWS fornecido pelo comando 'kubectl get services' na porta 9000.
 
-![Postman_AWS](src/main/resources/images/documentation/14-postman-aws.png)
+![Postman_AWS](src/main/resources/documentation/images/14-postman-aws.png)
+
+
+# Executando a aplicação na AWS com EKS
+Este é um exemplo de como executar a aplicação na AWS usando o EKS.  Para executar a aplicação na AWS, siga as etapas abaixo:
+
+![Running](src/main/resources/documentation/videos/executando-aplicacao.gif)

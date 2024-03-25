@@ -441,4 +441,4 @@ Após a implantação, teste os serviços usando o Postman com o DNS da AWS forn
 # Executando a aplicação na AWS com EKS
 Este é um exemplo de como executar a aplicação na AWS usando o EKS.  Para executar a aplicação na AWS, siga as etapas abaixo:
 
-![Running](src/main/resources/documentation/videos/executando-aplicacao.gif)
+![Running](src/main/resources/documentation/video/executando-aplicacao.gif)

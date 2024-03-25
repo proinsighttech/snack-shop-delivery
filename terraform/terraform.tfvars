@@ -22,3 +22,8 @@ instance_type_1                     = "t3a.medium"
 instance_type_2                     = "t3.medium"
 instance_type_3                     = "t3a.large"
 instance_capacity_type              = "SPOT"
+
+
+// ECR Repository Name
+repository_name                 = "snackshop-repository"
+image_name                      = "snack-shop-delivery-internal"

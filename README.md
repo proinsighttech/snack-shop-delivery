@@ -355,8 +355,8 @@ Certifique-se de seguir cada passo cuidadosamente para uma implementação bem-s
 * Terraform (Instalação: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
 
-### Arquitetura com Kubernetes Local
-![Arquitetura_local](src/main/resources/documentation/images/arquitetura-cloud.png)
+### Arquitetura com Kubernetes Cloud
+![Arquitetura_cloud](src/main/resources/documentation/images/arquitetura-cloud.png)
 
 
 ### Instalando Terraform
@@ -430,7 +430,7 @@ Com o MySQL em execução, aplique os arquivos da aplicação:
 
 
 ### Verificando Logs
-    kubectl logs -f <pod-name> --tail
+    kubectl logs -f <pod-name>
 
 ### Testar no Postman
 Após a implantação, teste os serviços usando o Postman com o DNS da AWS fornecido pelo comando 'kubectl get services' na porta 9000.

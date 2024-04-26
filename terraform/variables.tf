@@ -1,5 +1,5 @@
 // *************************************** //
-// ******** Environment Variables ******** // 
+// ******** Environment Variables ******** //
 // *************************************** //
 
 //Region
@@ -7,6 +7,13 @@ variable "region" {
   description = "AWS Region"
   type        = string
   default     = "us-west-2"
+}
+
+// Availability Zones
+variable "availability_zones" {
+  description = "Availability Zones"
+  type        = list(string)
+  default     = ["us-west-2a", "us-west-2b", "us-west-2c"]
 }
 
 //Environment
@@ -53,7 +60,7 @@ variable "role_name" {
 
 
 // *************************************** //
-// ******** EKS Cluster Variables ******** // 
+// ******** EKS Cluster Variables ******** //
 // *************************************** //
 
 //AWS EKS Cluster Name
@@ -120,6 +127,10 @@ variable "subnet_ids" {
   type        = list(string)
 }
 
+// *************************************** //
+// ******* ECR Repository Variables ****** //
+// *************************************** //
+
 //AWS ECR Repository Name
 variable "repository_name" {
   description = "ECR Repository Name"
@@ -129,5 +140,42 @@ variable "repository_name" {
 //AWS ECR Image Name
 variable "image_name" {
   description = "ECR Image Name"
+  type        = string
+}
+
+// *************************************** //
+// ******** API Gateway Variables ******** //
+// *************************************** //
+
+variable "backend_url" {
+  description = "Backend URL"
+  type        = string
+}
+
+// *************************************** //
+// ******* Auto Scalling Variables ******* //
+// *************************************** //
+
+variable "desired_size" {
+  description = "Desired Size"
+  type        = string
+}
+
+variable "max_size" {
+  description = "Max Size"
+  type        = string
+}
+
+variable "min_size" {
+  description = "Min Size"
+  type        = string
+}
+
+// *************************************** //
+// ******* Load Balancer Variables ******* //
+// *************************************** //
+
+variable "load_balancer_name" {
+  description = "Id of the load balancer"
   type        = string
 }

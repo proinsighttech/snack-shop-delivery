@@ -30,6 +30,8 @@ spec:
           env:
             - name: DB_HOST
               value: snack-shop-mysql
+            - name: SERVER_SERVLET_CONTEXT_PATH
+              value: /api
           ports:
             - containerPort: 9000
           resources:

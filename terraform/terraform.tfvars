@@ -12,6 +12,7 @@ role_name                           = "lanchonete-api-role"
 cluster_name                        = "snackshop-cluster"
 cluster_version                     = "1.28"
 cluster_endpoint_public_access      = true
+# eks_cluster_id                      = "snackshop-cluster"
 
 // VPC
 vpc_id                              = "vpc-03ff6e3c383770fe7"
@@ -27,3 +28,14 @@ instance_capacity_type              = "SPOT"
 // ECR Repository Name
 repository_name                 = "snackshop-repository"
 image_name                      = "snack-shop-delivery-internal"
+
+// API Gateway
+backend_url                     = "http://localhost:9000"
+
+// Load Balancer
+load_balancer_name              = "a2056a2348fef49b892f388af1bfe9da"
+
+//AutoScaling
+min_size                        = 0
+max_size                        = 5
+desired_size                    = 1

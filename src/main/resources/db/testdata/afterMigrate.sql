@@ -92,7 +92,7 @@ insert into group_permission (group_id, permission_id)
 select 4, id from permission where name like '%_LANCHONETES';
 
 INSERT INTO `user` (id, name, cpf, email, password, registration_date) VALUES
-(1, 'João Silva', '123.456.789-01', 'joao.silva@email.com', '$2y$12$NSsM4gEOR7MKogflKR7GMeYugkttjNhAJMvFdHrBLaLp2HzlggP5W', '2024-01-23 10:30:00'),
+(1, 'João Silva', '529.982.247-25', 'joao.silva@email.com', '$2y$12$NSsM4gEOR7MKogflKR7GMeYugkttjNhAJMvFdHrBLaLp2HzlggP5W', '2024-01-23 10:30:00'),
 (2, 'Maria Oliveira', '987.654.321-02', 'maria.oliveira@email.com', '$2y$12$NSsM4gEOR7MKogflKR7GMeYugkttjNhAJMvFdHrBLaLp2HzlggP5W', '2024-01-23 11:15:00'),
 (3, 'Carlos Santos', '456.789.012-03', 'carlos.santos@email.com', '$2y$12$NSsM4gEOR7MKogflKR7GMeYugkttjNhAJMvFdHrBLaLp2HzlggP5W', '2024-01-23 12:00:00'),
 (4, 'Amanda Pereira', '789.012.345-04', 'amanda.pereira@email.com', '$2y$12$NSsM4gEOR7MKogflKR7GMeYugkttjNhAJMvFdHrBLaLp2HzlggP5W', '2024-01-23 14:45:00'),

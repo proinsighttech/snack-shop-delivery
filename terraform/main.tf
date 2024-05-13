@@ -12,9 +12,9 @@ module "infra" {
     min_size                         = var.min_size
 }
 
-# module "integration" {
-#     source                          = "./modules/integration"
-#     vpc_id                          = var.vpc_id
-#     subnet_ids                      = var.subnet_ids
-#     load_balancer_name              = var.load_balancer_name
-# }
+module "integration" {
+    source                          = "./modules/integration"
+    vpc_id                          = var.vpc_id
+    subnet_ids                      = var.subnet_ids
+    load_balancer_name              = var.load_balancer_name
+}

@@ -33,7 +33,7 @@ image_name                      = "snack-shop-delivery-internal"
 backend_url                     = "http://localhost:9000"
 
 // Load Balancer
-load_balancer_name              = "a2056a2348fef49b892f388af1bfe9da"
+load_balancer_name              = "a52883e66aa314a18b10191455befbdd"
 
 //AutoScaling
 min_size                        = 0

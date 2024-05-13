@@ -37,3 +37,12 @@ jobs:
         run: |
           kubectl apply -f k8s/00-snack-shop-mysql.yml
           kubectl apply -f k8s/01-snack-shop-api.yml
+
+      - name: Get Load Balancer name
+        id: get_lb
+        run: |
+          LB_NAME=$(kubectl get svc snack-shop-api -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+          echo "AWS_LB_NAME=$LB_NAME" >> $GITHUB_ENV
+
+      - name: Use Load Balancer name
+        run: echo "The Load Balancer created - $AWS_LB_NAME"

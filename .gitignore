@@ -41,11 +41,5 @@ build/
 /terraform/terraform.tfstate
 /terraform/terraform.tfstate.backup
 /terraform/.terraform.tfstate.lock.info
-/terraform/descartar/scripts/aplicando-servicos.sh
-/terraform/descartar/scripts/upload-image-ecr.sh
-/terraform/descartar/scripts/apply-buildspec.yml
-/terraform/descartar/scripts/plan-buildspec.yml
-/terraform/descartar/
-/terraform/descartar/scripts/
 /.venv/
 /.idea/

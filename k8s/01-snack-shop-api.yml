@@ -2,6 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: snack-shop-api
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+#    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
 spec:
   ports:
     - port: 9000
@@ -25,6 +28,7 @@ spec:
     spec:
       containers:
         - name: snack-shop-api
+#          image: 279044386247.dkr.ecr.us-west-2.amazonaws.com/snack-shop-delivery-internal-snack-shop-api:latest
           image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-west-2.amazonaws.com/snack-shop-delivery-internal-snack-shop-api:latest  #Imagem ECR AWS
           env:
             - name: DB_HOST

@@ -69,6 +69,7 @@ jobs:
           kubectl apply -f k8s/00-snack-shop-mysql.yml
           kubectl apply -f k8s/01-snack-shop-api.yml
           kubectl apply -f k8s/02-hpa.yml
+          kubectl apply -f k8s/03-load-balancer.yml
 
       - name: Deploy Complete
         run: echo "Deploy Complete"

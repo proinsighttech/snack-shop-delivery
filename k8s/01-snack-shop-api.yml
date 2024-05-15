@@ -29,7 +29,7 @@ spec:
       containers:
         - name: snack-shop-api
 #          image: 279044386247.dkr.ecr.us-west-2.amazonaws.com/snack-shop-delivery-internal-snack-shop-api:latest
-          image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-west-2.amazonaws.com/snack-shop-delivery-internal-snack-shop-api:latest  #Imagem ECR AWS
+          image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-west-2.amazonaws.com/snackshop-repository:latest  #Imagem ECR AWS
           env:
             - name: DB_HOST
               value: snack-shop-mysql

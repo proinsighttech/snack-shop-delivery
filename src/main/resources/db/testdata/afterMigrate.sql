@@ -99,7 +99,7 @@ INSERT INTO `user` (id, name, cpf, email, password, registration_date) VALUES
 (5, 'Lucas Souza', '234.567.890-05', 'lucas.souza@email.com', '$2y$12$NSsM4gEOR7MKogflKR7GMeYugkttjNhAJMvFdHrBLaLp2HzlggP5W', '2024-01-23 15:30:00'),
 (6, 'Anônimo', null , 'totem@email.com', '$2y$12$NSsM4gEOR7MKogflKR7GMeYugkttjNhAJMvFdHrBLaLp2HzlggP5W', '2024-01-23 15:30:00');
 
-insert into user_group (user_id, group_id) values (1, 1), (1, 2), (2, 2), (3, 3), (4, 4), (6, 2);
+insert into user_group (user_id, group_id) values (1, 1), (1, 2), (2, 2), (3, 3), (4, 4), (6, 2), (6, 1);
 
 insert into snack_shop_user_admin (snack_shop_id, user_id) values (1, 4);
 insert into snack_shop_user_admin (snack_shop_id, user_id) values (1, 5);

@@ -64,16 +64,14 @@ jobs:
         run: |
           sed -i "s|\${AWS_ACCOUNT_ID}|${{ secrets.AWS_ACCOUNT_ID }}|" k8s/01-snack-shop-api.yml
 
-#      - name: Replace DB_NAME in k8s/01-snack-shop-api.yml
-#        run: |
-#          sed -i "s|snack-shop-mysql|${{ secrets.DB_ENDPOINT }}|" k8s/01-snack-shop-api.yml
+      - name: Replace DB_NAME in k8s/01-snack-shop-api.yml
+        run: |
+          sed -i "s|snack-shop-mysql|${{ secrets.DB_ENDPOINT }}|" k8s/01-snack-shop-api.yml
 
       - name: Deploy to EKS
         run: |
           kubectl apply -f k8s/01-snack-shop-api.yml
           kubectl apply -f k8s/02-hpa.yml
-#          kubectl apply -f k8s/00-snack-shop-mysql.yml
-#          kubectl apply -f k8s/03-load-balancer.yml
 
       - name: Deploy Complete
         run: echo "Deploy Complete"

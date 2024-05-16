@@ -4,7 +4,7 @@ metadata:
   name: snack-shop-api
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: nlb
-#    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
 spec:
   ports:
     - port: 9000
@@ -31,7 +31,7 @@ spec:
           image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-west-2.amazonaws.com/snackshop-repository:latest
           env:
             - name: DB_HOST
-              value: snack-shop-mysql.cvc8isqw46k7.us-west-2.rds.amazonaws.com
+              value: snack-shop-mysql
           ports:
             - containerPort: 9000
           resources:

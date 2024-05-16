@@ -28,13 +28,10 @@ spec:
     spec:
       containers:
         - name: snack-shop-api
-#          image: 279044386247.dkr.ecr.us-west-2.amazonaws.com/snack-shop-delivery-internal-snack-shop-api:latest
-          image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-west-2.amazonaws.com/snackshop-repository:latest  #Imagem ECR AWS
+          image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-west-2.amazonaws.com/snackshop-repository:latest
           env:
             - name: DB_HOST
-              value: snack-shop-mysql
-#            - name: SERVER_SERVLET_CONTEXT_PATH
-#              value: /api
+              value: snack-shop-mysql.cvc8isqw46k7.us-west-2.rds.amazonaws.com
           ports:
             - containerPort: 9000
           resources:

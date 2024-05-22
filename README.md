@@ -442,3 +442,34 @@ Após a implantação, teste os serviços usando o Postman com o DNS da AWS forn
 Este é um exemplo de como executar a aplicação na AWS usando o EKS.  Para executar a aplicação na AWS, siga as etapas abaixo:
 
 ![Running](src/main/resources/documentation/video/executando-aplicacao.gif)
+
+
+# Executanndo a aplicação na AWS com EKS, API Gateway e Lambda Authorizer
+Este é um exemplo de como executar a aplicação na AWS usando o EKS, API Gateway e Lambda Authorizer. Foram utilizados os seguintes repositorios:
+
+### Repositórios
+* Banco de Dados: RDS com MySQL
+  https://github.com/proinsighttech/lanchonete-infra-banco-de-dados
+
+
+* Infraestrutura: Terraform para criação do ambiente
+  https://github.com/proinsighttech/lanchonete-infra-kubernetes
+
+
+* Lambda Authorizer: Lambda que realiza autenticação por CPF
+  https://github.com/proinsighttech/lanchonete-lambda
+
+
+### Implantando a aplicação
+Para implantar a implantação da aplicação temos pipelines de CI/CD que realizam a implantação da aplicação no EKS, API Gateway e Lambda Authorizer.  
+Para implantar a aplicação, siga as etapas abaixo:
+
+1) Execute a esteira do banco RDS para criar o base de dados no MySQL.
+2) Execute a esteira de infraestrutura para criar o ambiente no EKS. essa esteira criará toda a infraestrutura necessária para a aplicação. (VPC, Subnets, Security Groups, EKS, RDS, etc.)
+3) A esteira da infraestrutura também fará o deploy da aplicação e enviará uma imagem para o ECR a fim de ser utilizada no EKS.
+4) Além disso, a esteira da infraestrutura também implantará o Lambda Authorizer no AWS Lambda.
+
+### Testando a aplicação
+A seguir, vamos testar a aplicação na AWS usando o EKS, API Gateway e Lambda Authorizer.
+
+![Running](src/main/resources/documentation/video/snack-shop-aws.gif)

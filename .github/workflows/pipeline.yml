@@ -8,9 +8,9 @@ on:
         required: true
         default: 'warning'
   push:
-    branches: [ main-terraform ]
+    branches: [ main ]
   pull_request:
-    branches: [ main-terraform ]
+    branches: [ main ]
 
 jobs:
   build:

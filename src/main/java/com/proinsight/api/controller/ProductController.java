@@ -4,6 +4,7 @@ import com.proinsight.api.facade.ProductFacade;
 import com.proinsight.api.model.ProductModel;
 import com.proinsight.api.model.input.ProductInput;
 import com.proinsight.api.security.CheckSecurity;
+import com.proinsight.domain.model.Product;
 import com.proinsight.domain.repository.filter.ProductFilter;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,15 @@ public class ProductController {
         return productFacade.listAllProducts(filter, pageable);
     }
 
+//    @CheckSecurity.SnackShops.PodeConsultar
+//    @GetMapping("/{productId}")
+//    public ProductModel findProductModel(@PathVariable Long snackShopId, @PathVariable Long productId) {
+//        return productFacade.findProductModel(snackShopId, productId);
+//    }
+
     @CheckSecurity.SnackShops.PodeConsultar
     @GetMapping("/{productId}")
-    public ProductModel findProduct(@PathVariable Long snackShopId, @PathVariable Long productId) {
+    public Product findProduct(@PathVariable Long snackShopId, @PathVariable Long productId) {
         return productFacade.findProduct(snackShopId, productId);
     }
 

@@ -12,6 +12,10 @@ public interface UserFacade {
 
     UserModel findUser(Long userId);
 
+    UserModel findUserByEmail(String email);
+
+    UserModel findUserByCPF(String cpf);
+
     UserModel addUser(UserPassInput userInput);
 
     UserModel updateUser(Long userId, UserInput userInput);

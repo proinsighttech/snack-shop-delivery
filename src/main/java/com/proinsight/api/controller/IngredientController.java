@@ -5,6 +5,8 @@ import com.proinsight.api.model.IngredientModel;
 import com.proinsight.api.model.IngredientStockModel;
 import com.proinsight.api.model.input.IngredientInput;
 import com.proinsight.api.security.CheckSecurity;
+import com.proinsight.domain.model.IngredientStock;
+import com.proinsight.domain.model.ProductIngredient;
 import com.proinsight.domain.repository.filter.IngredientFilter;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,8 @@ import org.springframework.hateoas.PagedModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/ingredients")
@@ -54,6 +58,24 @@ public class IngredientController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteIngredient(@PathVariable Long ingredientId) {
         ingredientFacade.deleteIngredient(ingredientId);
+    }
+
+    @CheckSecurity.SnackShops.PodeConsultar
+    @GetMapping(value = "/product-ingredient/{ingredientId}")
+    public ProductIngredient findProductIngredient(@PathVariable Long ingredientId) {
+        return ingredientFacade.findProductIngredient(ingredientId);
+    }
+
+    @CheckSecurity.SnackShops.PodeConsultar
+    @GetMapping(value = "/ingredient-stock/{ingredientId}")
+    public IngredientStock findIngredientStock(@PathVariable Long ingredientId) {
+        return ingredientFacade.findIngredientStock(ingredientId);
+    }
+
+    @CheckSecurity.SnackShops.PodeConsultar
+    @GetMapping(value = "/update-ingredient-stock/{ingredientId}/{quantity}")
+    public void updateIngredientStock(@PathVariable Long ingredientId, @PathVariable("quantity") Integer quantity){
+        ingredientFacade.updateStock(ingredientId, quantity);
     }
 
 }

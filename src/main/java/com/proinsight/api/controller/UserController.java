@@ -32,6 +32,18 @@ public class UserController {
         return userFacade.findUser(userId);
     }
 
+    @CheckSecurity.UserGroupsPermissions.PodeConsultar
+    @GetMapping(value = "/email/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserModel findUserByEmail(@PathVariable String email) {
+        return userFacade.findUserByEmail(email);
+    }
+
+    @CheckSecurity.UserGroupsPermissions.PodeConsultar
+    @GetMapping(value = "/cpf/{cpf}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserModel findUserByCPF(@PathVariable String cpf) {
+        return userFacade.findUserByCPF(cpf);
+    }
+
     @CheckSecurity.UserGroupsPermissions.PodeEditar
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)

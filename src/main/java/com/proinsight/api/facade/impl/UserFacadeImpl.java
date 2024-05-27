@@ -41,6 +41,16 @@ public class UserFacadeImpl implements UserFacade {
         return userModelAssembler.toModel(user);
     }
 
+    public UserModel findUserByEmail(String email) {
+        User user = userService.findByEmailOrThrow(email);
+        return userModelAssembler.toModel(user);
+    }
+
+    public UserModel findUserByCPF(String cpf) {
+        User user = userService.findByCpfOrThrow(cpf);
+        return userModelAssembler.toModel(user);
+    }
+
     public UserModel addUser(UserPassInput userInput) {
         User user = userInputDisassembler.toDomainObject(userInput);
         user = userService.save(user);

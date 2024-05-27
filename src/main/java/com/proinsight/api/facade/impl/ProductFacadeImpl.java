@@ -56,7 +56,12 @@ public class ProductFacadeImpl implements ProductFacade {
         return pagedResourcesAssembler.toModel(productsPage, productModelAssembler);
     }
 
-    public ProductModel findProduct(Long snackShopId, Long productId) {
+    public Product findProduct(Long snackShopId, Long productId) {
+        Product product = productService.findOrThrow(snackShopId, productId);
+        return product;
+    }
+
+    public ProductModel findProductModel(Long snackShopId, Long productId) {
         Product product = productService.findOrThrow(snackShopId, productId);
         return productModelAssembler.toModel(product);
     }

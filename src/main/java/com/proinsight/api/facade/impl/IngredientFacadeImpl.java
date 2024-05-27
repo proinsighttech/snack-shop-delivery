@@ -9,13 +9,16 @@ import com.proinsight.api.facade.IngredientFacade;
 import com.proinsight.api.model.IngredientModel;
 import com.proinsight.api.model.IngredientStockModel;
 import com.proinsight.api.model.input.IngredientInput;
+import com.proinsight.domain.exception.IngredientNotFoundException;
 import com.proinsight.domain.model.Ingredient;
 import com.proinsight.domain.model.IngredientStock;
+import com.proinsight.domain.model.ProductIngredient;
 import com.proinsight.domain.repository.IngredientStockRepository;
 import com.proinsight.domain.repository.filter.IngredientFilter;
 import com.proinsight.domain.repository.spec.IngredientStockSpec;
 import com.proinsight.domain.service.IngredientService;
 import com.proinsight.domain.service.IngredientStockService;
+import com.proinsight.domain.service.ProductIngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,6 +33,9 @@ public class IngredientFacadeImpl implements IngredientFacade {
 
     @Autowired
     private IngredientService ingredientService;
+
+    @Autowired
+    ProductIngredientService productIngredientService;
 
     @Autowired
     private IngredientStockService ingredientStockService;
@@ -87,5 +93,19 @@ public class IngredientFacadeImpl implements IngredientFacade {
                 "stockQuantity", "stockQuantity"
         );
         return PageableTranslator.translate(apiPageable, mapeamento);
+    }
+
+    public ProductIngredient findProductIngredient(Long productId) {
+        ProductIngredient productIngredient = productIngredientService.findOrThrow(productId);
+        return productIngredient;
+    }
+
+    public IngredientStock findIngredientStock(Long ingredientId) {
+        return ingredientStockRepository.findByIngredientId(ingredientId)
+                .orElseThrow(() -> new IngredientNotFoundException(ingredientId));
+    }
+
+    public void updateStock(Long ingredientId, Integer quantity) {
+        ingredientStockService.updateIngredientStock(ingredientId, quantity);
     }
 }

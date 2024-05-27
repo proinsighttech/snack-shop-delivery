@@ -58,8 +58,7 @@ public class IngredientStockService {
             throw new BusinessException(
                     String.format("Quantidade de %s insuficiente em estoque. Quantidade em estoque: %d", ingredient.getName(), stockQuantity));
         }
-        ingredientStockRepository.updateStock(ingredientId, stockQuantity - quantity);
-        ingredientStockRepository.saveAndFlush(stock);
+        updateIngredientStock(ingredientId, stockQuantity - quantity);
     }
 
     public void addIngredient(Ingredient ingredient) {
@@ -69,8 +68,12 @@ public class IngredientStockService {
 
         IngredientStock stock = findOrThrow(ingredientId);
         Integer stockQuantity = stock.getStockQuantity();
+        updateIngredientStock(ingredientId, stockQuantity + quantity);
+    }
 
-        ingredientStockRepository.updateStock(ingredientId, stockQuantity + quantity);
+    public void updateIngredientStock(Long ingredientId, Integer quantity){
+        IngredientStock stock = findOrThrow(ingredientId);
+        ingredientStockRepository.updateStock(ingredientId, quantity);
         ingredientStockRepository.saveAndFlush(stock);
     }
 }

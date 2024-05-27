@@ -5,6 +5,7 @@ import com.proinsight.api.facade.ProductIngredientFacade;
 import com.proinsight.api.model.IngredientModel;
 import com.proinsight.domain.model.Ingredient;
 import com.proinsight.domain.model.Product;
+import com.proinsight.domain.model.ProductIngredient;
 import com.proinsight.domain.repository.ProductIngredientRepository;
 import com.proinsight.domain.service.ProductIngredientService;
 import com.proinsight.domain.service.ProductService;
@@ -34,6 +35,11 @@ public class ProductIngredientFacadeImpl implements ProductIngredientFacade {
         Product product = productService.findOrThrow(productId);
         List<Ingredient> ingredients = productIngredientRepository.findAllIngredientByProduct(productId);
         return ingredientModelAssembler.toCollectionModel(ingredients);
+    }
+
+    public ProductIngredient findProductIngredient(Long productId) {
+        ProductIngredient productIngredient = productIngredientService.findOrThrow(productId);
+        return productIngredient;
     }
 
     public ResponseEntity<Void> addIngredientToProduct(Long productId, Long ingredientId) {

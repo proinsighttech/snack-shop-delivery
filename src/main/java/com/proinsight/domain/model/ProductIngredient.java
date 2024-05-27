@@ -24,4 +24,14 @@ public class ProductIngredient {
     @ManyToOne
     @JoinColumn(name = "ingredient_id", nullable = false)
     private Ingredient ingredient;
+
+    @Override
+    public String toString() {
+        return "ProductIngredient{" +
+                "id=" + id +
+                ", quantity=" + quantity +
+                ", product=" + product +
+                ", ingredient=" + ingredient +
+                '}';
+    }
 }

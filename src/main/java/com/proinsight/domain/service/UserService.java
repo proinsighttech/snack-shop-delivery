@@ -99,6 +99,11 @@ public class UserService {
                 .orElseThrow(() -> new UserNotFoundException(userId));
     }
 
+    public User findByEmailOrThrow(String email) {
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException(email));
+    }
+
     public User findByCpfOrThrow(String userCpf) {
         return userRepository.findByCpf(userCpf)
                 .orElseThrow(() -> new UserNotFoundException(userCpf));

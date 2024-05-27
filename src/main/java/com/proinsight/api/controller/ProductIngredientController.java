@@ -3,6 +3,7 @@ package com.proinsight.api.controller;
 import com.proinsight.api.facade.ProductIngredientFacade;
 import com.proinsight.api.model.IngredientModel;
 import com.proinsight.api.security.CheckSecurity;
+import com.proinsight.domain.model.ProductIngredient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,12 @@ public class ProductIngredientController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public CollectionModel<IngredientModel> listAllIngredients(@PathVariable Long productId) {
         return productIngredientFacade.listAllIngredients(productId);
+    }
+
+    @CheckSecurity.SnackShops.PodeConsultar
+    @GetMapping(value = "/{ingredientId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ProductIngredient findProductIngredient(@PathVariable Long ingredientId) {
+        return productIngredientFacade.findProductIngredient(ingredientId);
     }
 
     @CheckSecurity.SnackShops.PodeGerenciarCadastro

@@ -23,6 +23,130 @@ A aplicação "Snack Shop API" é um sistema de gerenciamento para lanchonetes. 
 
 Em resumo, a Snack Shop API é uma solução completa para lanchonetes que buscam melhorar sua eficiência operacional e proporcionar uma experiência superior aos seus clientes.
 
+
+# FASE 3
+
+## 📝 Arquitetura AWS
+
+![Arquitetura_AWS](src/main/resources/documentation/images/aws/00-arquitetura-aws.png)
+
+## Descrição da Arquitetura do Projeto na AWS
+
+### 1. Usuário e API Gateway
+**Usuário:** Os usuários interagem com seu sistema enviando requisições HTTP.
+
+**API Gateway:** Serve como ponto de entrada para todas as requisições dos usuários. Ele gerencia e roteia essas requisições para os serviços apropriados no backend.
+
+### 2. Lambda Authorizer
+**Lambda Authorizer:** Antes de permitir que as requisições atinjam o backend, o API Gateway utiliza um Lambda Authorizer para autenticar e autorizar as requisições. Este Lambda verifica se a solicitação tem permissão para prosseguir com base em tokens ou outros critérios de segurança.
+**Nesse caso o usuário seá autenticado por CPF.**
+
+### 3. Load Balancer
+**Load Balancer:** Distribui o tráfego recebido do API Gateway entre as instâncias de serviços backend localizadas nas diferentes zonas de disponibilidade. Isso ajuda a distribuir a carga de maneira uniforme e a garantir alta disponibilidade e resiliência do sistema.
+
+### 4. VPC (Virtual Private Cloud)
+**VPC:** Toda a infraestrutura está dentro de uma VPC, garantindo que os recursos estejam isolados e seguros. A VPC inclui várias sub-redes para segmentação lógica e controle de tráfego.
+
+### 5. Sub-redes Privadas e Zonas de Disponibilidade
+**Sub-redes Privadas:** Os recursos como instâncias EC2 e serviços ECS (Elastic Container Service) são implantados em sub-redes privadas, garantindo que não sejam acessíveis diretamente da internet.
+   
+**Zonas de Disponibilidade:** A arquitetura é configurada em múltiplas zonas de disponibilidade para garantir alta disponibilidade e tolerância a falhas.
+
+### 6. Elastic Container Service (ECS) e EC2 Instances
+**ECS:** O ECS gerencia os contêineres Docker que hospedam suas aplicações. Ele facilita a execução, escalonamento e manutenção dos contêineres.
+
+**EC2 Instances:** As instâncias EC2 dentro do ECS executam tarefas e serviços definidos nos contêineres. Eles estão espalhados por várias sub-redes privadas para maior resiliência.
+
+### 7. Serviços e Tarefas
+**Serviços:** Representam aplicações de longa duração gerenciadas pelo ECS, garantindo que um número especificado de tarefas esteja sempre em execução.
+   
+**Tarefas:** Unidades básicas de trabalho no ECS, definidas pelas imagens de contêineres e suas configurações.
+
+### 8. RDS (Relational Database Service)
+**RDS:** Um banco de dados gerenciado usado para armazenar dados de aplicação. Ele está localizado dentro da VPC, garantindo acesso seguro e performance otimizada. O RDS pode ser configurado para alta disponibilidade e recuperação de desastres com réplicas em múltiplas zonas de disponibilidade.
+
+
+# Executando a aplicação na AWS com EKS, API Gateway e Lambda Authorizer
+Este é um exemplo de como executar a aplicação na AWS usando o EKS, API Gateway e Lambda Authorizer. Foram utilizados os seguintes repositorios:
+
+### Repositórios
+* Banco de Dados: RDS com MySQL
+  https://github.com/proinsighttech/lanchonete-infra-banco-de-dados
+
+
+* Infraestrutura: Terraform para criação do ambiente
+  https://github.com/proinsighttech/lanchonete-infra-kubernetes
+
+
+* Lambda Authorizer: Lambda que realiza autenticação por CPF
+  https://github.com/proinsighttech/lanchonete-lambda
+
+### Implantando a aplicação
+Para implantar a implantação da aplicação temos pipelines de CI/CD que realizam a implantação da aplicação no EKS, API Gateway e Lambda Authorizer.  
+Para implantar a aplicação, siga as etapas abaixo:
+
+1) Execute a esteira do banco RDS para criar o base de dados no MySQL.
+2) Execute a esteira de infraestrutura para criar o ambiente no EKS. essa esteira criará toda a infraestrutura necessária para a aplicação. (VPC, Subnets, Security Groups, EKS, RDS, etc.)
+3) A esteira da infraestrutura também fará o deploy da aplicação e enviará uma imagem para o ECR a fim de ser utilizada no EKS.
+4) Além disso, a esteira da infraestrutura também implantará o Lambda Authorizer no AWS Lambda.
+
+### Testando a aplicação
+A seguir, vamos testar a aplicação na AWS usando o EKS, API Gateway e Lambda Authorizer.
+
+![Running](src/main/resources/documentation/video/snack-shop-aws.gif)
+
+## Procedimento Realizado
+
+**1. Deploy da Aplicação**
+
+Deploy é realizado no GitHub usando a esteira de CI/CD do GitHub Actions.
+
+![Deploy](src/main/resources/documentation/images/aws/01-deploy-github.png)
+
+A esteira de CI/CD do GitHub Actions é acionada quando um novo commit é enviado para o repositório. 
+Ela executa os testes de unidade e integração e, em seguida, implanta a aplicação no EKS, API Gateway e Lambda Authorizer.
+
+
+
+**2. API Gateway e Lambda Authorizer**
+
+O API Gateway e o Lambda Authorizer são implantados na AWS. O API Gateway serve como ponto de entrada para todas as requisições dos usuários, enquanto o Lambda Authorizer é usado para autenticar e autorizar as requisições.
+
+![API Gateway](src/main/resources/documentation/images/aws/02-api-gateway.png)
+
+
+
+**3. Enderenço de Acesso**
+
+O Endereço de Acesso é fornecido pelo API Gateway. Ele é usado para acessar a aplicação na AWS.
+
+![Endereço](src/main/resources/documentation/images/aws/03-endereco-api.png)
+
+
+
+**4. Testando a Aplicação**
+
+A aplicação é testada usando o Postman. As requisições são enviadas para o Endereço de Acesso fornecido pelo API Gateway.
+
+![Postman](src/main/resources/documentation/images/aws/04-chamando-api.png)
+
+
+
+
+**5. Autenticação por CPF**
+
+Podemos observar que a autenticação por CPF foi bem-sucedida. O Lambda Authorizer permitiu que a requisição fosse encaminhada para a aplicação.
+
+![CPF](src/main/resources/documentation/images/aws/05-autenticacao-lambda.png)
+
+   
+
+
+
+___
+___
+___
+
 ## 📄 Diagramas de negócio
 - [Processos](https://miro.com/app/board/uXjVNzyqNFE=/)
 - Diagrama de Objetos
@@ -442,34 +566,3 @@ Após a implantação, teste os serviços usando o Postman com o DNS da AWS forn
 Este é um exemplo de como executar a aplicação na AWS usando o EKS.  Para executar a aplicação na AWS, siga as etapas abaixo:
 
 ![Running](src/main/resources/documentation/video/executando-aplicacao.gif)
-
-
-# Executanndo a aplicação na AWS com EKS, API Gateway e Lambda Authorizer
-Este é um exemplo de como executar a aplicação na AWS usando o EKS, API Gateway e Lambda Authorizer. Foram utilizados os seguintes repositorios:
-
-### Repositórios
-* Banco de Dados: RDS com MySQL
-  https://github.com/proinsighttech/lanchonete-infra-banco-de-dados
-
-
-* Infraestrutura: Terraform para criação do ambiente
-  https://github.com/proinsighttech/lanchonete-infra-kubernetes
-
-
-* Lambda Authorizer: Lambda que realiza autenticação por CPF
-  https://github.com/proinsighttech/lanchonete-lambda
-
-
-### Implantando a aplicação
-Para implantar a implantação da aplicação temos pipelines de CI/CD que realizam a implantação da aplicação no EKS, API Gateway e Lambda Authorizer.  
-Para implantar a aplicação, siga as etapas abaixo:
-
-1) Execute a esteira do banco RDS para criar o base de dados no MySQL.
-2) Execute a esteira de infraestrutura para criar o ambiente no EKS. essa esteira criará toda a infraestrutura necessária para a aplicação. (VPC, Subnets, Security Groups, EKS, RDS, etc.)
-3) A esteira da infraestrutura também fará o deploy da aplicação e enviará uma imagem para o ECR a fim de ser utilizada no EKS.
-4) Além disso, a esteira da infraestrutura também implantará o Lambda Authorizer no AWS Lambda.
-
-### Testando a aplicação
-A seguir, vamos testar a aplicação na AWS usando o EKS, API Gateway e Lambda Authorizer.
-
-![Running](src/main/resources/documentation/video/snack-shop-aws.gif)

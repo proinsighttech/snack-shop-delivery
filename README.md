@@ -95,6 +95,8 @@ A seguir, vamos testar a aplicação na AWS usando o EKS, API Gateway e Lambda A
 
 ![Running](src/main/resources/documentation/video/snack-shop-aws.gif)
 
+### OBS: Para testar a aplicação  importar a collection do Postman no diretório src/main/resources/collections.
+
 ## Procedimento Realizado
 
 **1. Deploy da Aplicação**

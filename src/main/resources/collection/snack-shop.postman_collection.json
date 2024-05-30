@@ -16,28 +16,34 @@
 							"type": "basic",
 							"basic": [
 								{
-									"key": "password",
-									"value": "123",
+									"key": "username",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								},
 								{
-									"key": "username",
-									"value": "joao.silva@email.com",
+									"key": "password",
+									"value": "123",
 									"type": "string"
 								}
 							]
 						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:9000/",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
-							"path": [
-								""
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -48,6 +54,50 @@
 		{
 			"name": "Groups",
 			"item": [
+				{
+					"name": "Groups -  List",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/groups?cpf=529.982.247-25",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"groups"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Groups - Add Group",
 					"request": {
@@ -69,10 +119,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -85,14 +134,18 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/groups",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/groups?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"groups"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -119,22 +172,25 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/groups/1",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/groups/1?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"groups",
 								"1"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -161,10 +217,9 @@
 						"method": "PUT",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -177,15 +232,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/groups/4",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/groups/4?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"groups",
 								"4"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -212,10 +271,9 @@
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -228,56 +286,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/groups/5",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/groups/5?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"groups",
 								"5"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Groups -  List",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "http://localhost:9000/groups",
-							"protocol": "http",
-							"host": [
-								"localhost"
 							],
-							"port": "9000",
-							"path": [
-								"groups"
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -304,23 +325,26 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/groups/1/permissions",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/groups/1/permissions?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"groups",
 								"1",
 								"permissions"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -347,24 +371,27 @@
 						"method": "PUT",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/groups/1/permissions/1",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/groups/1/permissions/1?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"groups",
 								"1",
 								"permissions",
 								"1"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -391,24 +418,27 @@
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/groups/1/permissions/1",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/groups/1/permissions/1?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"groups",
 								"1",
 								"permissions",
 								"1"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -427,7 +457,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "joao.silva@email.com",
+									"value": "totem@email.com",
 									"type": "string"
 								},
 								{
@@ -440,194 +470,27 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Basic dG90ZW1AZW1haWwuY29tOjEyMw=="
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/users",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/users?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Users - Find",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "http://localhost:9000/users/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
 							],
-							"port": "9000",
-							"path": [
-								"users",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Users -  List  Groups",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
+							"query": [
 								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
+									"key": "cpf",
+									"value": "529.982.247-25"
 								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "http://localhost:9000/users/1/groups",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"users",
-								"1",
-								"groups"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Users - Add Group",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "http://localhost:9000/users/1/groups/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"users",
-								"1",
-								"groups",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Users - Remove Group",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "http://localhost:9000/users/1/groups/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"users",
-								"1",
-								"groups",
-								"1"
 							]
 						}
 					},
@@ -641,7 +504,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "joao.silva@email.com",
+									"value": "totem@email.com",
 									"type": "string"
 								},
 								{
@@ -654,10 +517,9 @@
 						"method": "POST",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -670,28 +532,32 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/users",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/users?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"users"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Users -  Update",
+					"name": "Users - Find",
 					"request": {
 						"auth": {
 							"type": "basic",
 							"basic": [
 								{
 									"key": "username",
-									"value": "joao.silva@email.com",
+									"value": "totem@email.com",
 									"type": "string"
 								},
 								{
@@ -701,18 +567,62 @@
 								}
 							]
 						},
-						"method": "PUT",
+						"method": "GET",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/users/1?cpf=529.982.247-25",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"users",
+								"1"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users -  Remove",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "totem@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "    {\r\n        \"name\": \"João da Silva Santos\",\r\n        \"email\": \"joao.ger@proinsight.com\",\r\n        \"cpf\": \"123.456.789-09\" \r\n    }",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -720,15 +630,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/users/1",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/users/1?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"users",
 								"1"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -755,10 +669,9 @@
 						"method": "PUT",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -771,23 +684,127 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/users/1/password",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/users/1/password?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"users",
 								"1",
 								"password"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Users -  Remove",
+					"name": "Users -  Update",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "totem@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"name\": \"João da Silva Santos\",\r\n        \"email\": \"joao.ger@proinsight.com\",\r\n        \"cpf\": \"123.456.789-09\" \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/users/1?cpf=529.982.247-25",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"users",
+								"1"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users -  List  Groups",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/users/1/groups?cpf=529.982.247-25",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"users",
+								"1",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users - Add Group",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -807,31 +824,74 @@
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:9000/users/1",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/users/1/groups/1?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"users",
+								"1",
+								"groups",
 								"1"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users - Remove Group",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/users/1/groups/1?cpf=529.982.247-25",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"users",
+								"1",
+								"groups",
+								"1"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -880,12 +940,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/orders?filteredResults=true",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/orders?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"orders"
 							],
@@ -912,7 +970,59 @@
 								},
 								{
 									"key": "filteredResults",
-									"value": "true"
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders - Add",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "totem@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client\": {\r\n        \"cpf\": \"987.654.321-02\"\r\n    },\r\n    \"snackShop\": {\r\n        \"id\": 1\r\n    },\r\n    \"paymentMethod\": {\r\n        \"id\": 1\r\n    },\r\n    \"items\": [\r\n        {\r\n            \"productId\": 2,\r\n            \"quantity\": 1,\r\n            \"observation\": \"Sem cebola\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/orders?cpf=529.982.247-25",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
 								}
 							]
 						}
@@ -940,58 +1050,19 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/orders/5",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/orders/5?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"orders",
 								"5"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Orders - Add",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"client\": {\r\n        \"cpf\": null\r\n    },\r\n    \"snackShop\": {\r\n        \"id\": 1\r\n    },\r\n    \"paymentMethod\": {\r\n        \"id\": 1\r\n    },\r\n    \"items\": [\r\n        {\r\n            \"productId\": 2,\r\n            \"quantity\": 1,\r\n            \"observation\": \"Sem cebola\"\r\n        }\r\n    ]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:9000/orders",
-							"protocol": "http",
-							"host": [
-								"localhost"
 							],
-							"port": "9000",
-							"path": [
-								"orders"
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1018,16 +1089,20 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/orders/4/prepare",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/orders/4/prepare?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"orders",
 								"4",
 								"prepare"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1054,16 +1129,20 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/orders/2/cancel",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/orders/2/cancel?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"orders",
 								"2",
 								"cancel"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1090,16 +1169,20 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/orders/4/ready",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/orders/4/ready?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"orders",
 								"4",
 								"ready"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1113,7 +1196,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "joao.silva@email.com",
+									"value": "totem@email.com",
 									"type": "string"
 								},
 								{
@@ -1126,16 +1209,20 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/orders/4/delivery",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/orders/4/delivery?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"orders",
 								"4",
 								"delivery"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1174,14 +1261,18 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/payment-methods",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/payment-methods?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"payment-methods"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1224,14 +1315,18 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/payment-methods",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/payment-methods?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"payment-methods"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1245,7 +1340,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "joao.silva@email.com",
+									"value": "totem@email.com",
 									"type": "string"
 								},
 								{
@@ -1265,15 +1360,19 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/payment-methods/2",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/payment-methods/2?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"payment-methods",
 								"2"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1316,15 +1415,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/payment-methods/1",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/payment-methods/1?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"payment-methods",
 								"1"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1367,15 +1470,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/payment-methods/5",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/payment-methods/5?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"payment-methods",
 								"5"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1414,56 +1521,18 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/snackshops",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "SnackShops - Find",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "http://localhost:9000/snackshops/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
 							],
-							"port": "9000",
-							"path": [
-								"snackshops",
-								"1"
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1506,38 +1575,42 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/snackshops",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "SnackShop - Active",
+					"name": "SnackShops - Find",
 					"request": {
 						"auth": {
 							"type": "basic",
 							"basic": [
 								{
-									"key": "username",
-									"value": "joao.silva@email.com",
+									"key": "password",
+									"value": "123",
 									"type": "string"
 								},
 								{
-									"key": "password",
-									"value": "123",
+									"key": "username",
+									"value": "joao.silva@email.com",
 									"type": "string"
 								}
 							]
 						},
-						"method": "PUT",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Accept",
@@ -1547,59 +1620,19 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/snackshops/2/active",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops/1?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops",
-								"2",
-								"active"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "SnackShop - Desactive",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
+								"1"
+							],
+							"query": [
 								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
+									"key": "cpf",
+									"value": "529.982.247-25"
 								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "http://localhost:9000/snackshops/2/desactive",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"snackshops",
-								"2",
-								"desactive"
 							]
 						}
 					},
@@ -1645,146 +1678,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/snackshops/1",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops/1?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops",
 								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "SnackShops - List PaymentMethods",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "http://localhost:9000/snackshops/1/payment-methods",
-							"protocol": "http",
-							"host": [
-								"localhost"
 							],
-							"port": "9000",
-							"path": [
-								"snackshops",
-								"1",
-								"payment-methods"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "SnackShops - Add PaymentMethods",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
+							"query": [
 								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
+									"key": "cpf",
+									"value": "529.982.247-25"
 								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "http://localhost:9000/snackshops/1/payment-methods/4",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"snackshops",
-								"1",
-								"payment-methods",
-								"4"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "SnackShops - Remove PaymentMethods",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "http://localhost:9000/snackshops/1/payment-methods/4",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"snackshops",
-								"1",
-								"payment-methods",
-								"4"
 							]
 						}
 					},
@@ -1818,16 +1724,20 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/snackshops/1/admins",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops/1/admins?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops",
 								"1",
 								"admins"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1861,17 +1771,21 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/snackshops/1/admins/2",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops/1/admins/2?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops",
 								"1",
 								"admins",
 								"2"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1905,17 +1819,21 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/snackshops/1/admins/2",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops/1/admins/2?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops",
 								"1",
 								"admins",
 								"2"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -1926,50 +1844,6 @@
 		{
 			"name": "Products",
 			"item": [
-				{
-					"name": "Products - Find",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "http://localhost:9000/snackshops/1/products/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"snackshops",
-								"1",
-								"products",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "Products - List",
 					"request": {
@@ -1998,12 +1872,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/snackshops/1/products",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops/1/products?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops",
 								"1",
@@ -2019,6 +1891,10 @@
 									"key": "category",
 									"value": "Sobremesa",
 									"disabled": true
+								},
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
 								}
 							]
 						}
@@ -2062,16 +1938,68 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/snackshops/1/products",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops/1/products?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops",
 								"1",
 								"products"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products - Find",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/snackshops/1/products/2?cpf=529.982.247-25",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"snackshops",
+								"1",
+								"products",
+								"2"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -2114,17 +2042,21 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/snackshops/1/products/2",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops/1/products/2?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops",
 								"1",
 								"products",
 								"2"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -2167,17 +2099,21 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/snackshops/1/products/2",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops/1/products/2?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops",
 								"1",
 								"products",
 								"2"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -2216,14 +2152,71 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/ingredients",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/ingredients?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"ingredients"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ingredients - Add",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "joao.silva@email.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Cebola Roxa\",\r\n    \"description\": \"Utilizada em Saladas\",\r\n    \"quantity\": 1\r\n}\r\n\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/ingredients?cpf=529.982.247-25",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"ingredients"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -2257,65 +2250,19 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:9000/ingredients/1",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/ingredients/1?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"ingredients",
 								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Ingredients - Add",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "123",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "joao.silva@email.com",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/xml",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Cebola Roxa\",\r\n    \"description\": \"Utilizada em Saladas\",\r\n    \"quantity\": 1\r\n}\r\n\r\n\r\n\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:9000/ingredients",
-							"protocol": "http",
-							"host": [
-								"localhost"
 							],
-							"port": "9000",
-							"path": [
-								"ingredients"
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -2358,17 +2305,21 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/snackshops/1/products/2",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops/1/products/2?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops",
 								"1",
 								"products",
 								"2"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},
@@ -2411,17 +2362,21 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9000/snackshops/1/products/2",
-							"protocol": "http",
+							"raw": "{{HOSTNAME}}/snackshops/1/products/2?cpf=529.982.247-25",
 							"host": [
-								"localhost"
+								"{{HOSTNAME}}"
 							],
-							"port": "9000",
 							"path": [
 								"snackshops",
 								"1",
 								"products",
 								"2"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "529.982.247-25"
+								}
 							]
 						}
 					},

@@ -29,16 +29,10 @@ public class ProductController {
         return productFacade.listAllProducts(filter, pageable);
     }
 
-//    @CheckSecurity.SnackShops.PodeConsultar
-//    @GetMapping("/{productId}")
-//    public ProductModel findProductModel(@PathVariable Long snackShopId, @PathVariable Long productId) {
-//        return productFacade.findProductModel(snackShopId, productId);
-//    }
-
     @CheckSecurity.SnackShops.PodeConsultar
     @GetMapping("/{productId}")
-    public Product findProduct(@PathVariable Long snackShopId, @PathVariable Long productId) {
-        return productFacade.findProduct(snackShopId, productId);
+    public ProductModel findProduct(@PathVariable Long snackShopId, @PathVariable Long productId) {
+        return productFacade.findProductModel(snackShopId, productId);
     }
 
     @CheckSecurity.SnackShops.PodeGerenciarCadastro
